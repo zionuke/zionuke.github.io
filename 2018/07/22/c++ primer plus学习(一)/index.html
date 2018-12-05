@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ primer plus学习（一）">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/c++ primer plus学习(一)/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-05T15:24:09.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++ primer plus学习（一）">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/22/c++ primer plus学习(一)/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>c++ primer plus学习（一） | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/c++ primer plus学习(一)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="ShreenLiu">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">c++ primer plus学习（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-22 21:17:55" itemprop="dateCreated datePublished" datetime="2018-07-22T21:17:55+08:00">2018-07-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-05 23:24:09" itemprop="dateModified" datetime="2018-12-05T23:24:09+08:00">2018-12-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/22/c++ primer plus学习(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/22/c++ primer plus学习(一)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/22/c++ primer plus学习(一)/" class="leancloud_visitors" data-flag-title="c++ primer plus学习（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h2 id="c-primer-plus第二章"><a href="#c-primer-plus第二章" class="headerlink" title="c++ primer plus第二章"></a>c++ primer plus第二章</h2><ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.get();</span><br><span class="line"><span class="built_in">cin</span>.get();   <span class="comment">//两次以便读入回车并保持窗口打开</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;      <span class="built_in">cin</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">换行通常采用<span class="built_in">endl</span>更方便，但有时<span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>双引号字符串时\n更好</span><br><span class="line"><span class="comment">//注意，两者有差别，endl确保程序继续运行前刷新输出(将其立刻显示在屏幕上)，但\n无这样的保证</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="c-primer-plus第三章"><a href="#c-primer-plus第三章" class="headerlink" title="c++ primer plus第三章"></a>c++ primer plus第三章</h2><ul>
+<li><p>c++11初始化方式：c++11使得可将大括号初始化器用于任何类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> emus&#123;<span class="number">7</span>&#125;;  <span class="comment">//set emus to 7</span></span><br><span class="line"><span class="keyword">int</span> emus = &#123;<span class="number">7</span>&#125;;  <span class="comment">//同上</span></span><br><span class="line"><span class="keyword">int</span> a&#123;&#125;;   <span class="comment">//初始化变量为0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cout默认以10进制格式显示整数，无论在程序中这些整数如何书写，可通过控制符dec,hex,oct用以显示十，十六，八进制</span></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">42</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;hex;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;    <span class="comment">//此时输出会以十六进制显示</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>除非有理由存储为其他类型，c++会将整型常量默认存储为int类型</p>
+</li>
+<li><p>char可用作比short更小的整型</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout.put(&apos;A&apos;);   //显示一个字符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与int不同，char在默认情况下既不是没有符号，也不是有符号，具体由c++实现决定，所有若char有某种特定的行为对你来说非常重要，记得显示声明类型</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//应使用const来定义符号常量而不是#define</span></span><br><span class="line"><span class="comment">/*好处有三</span></span><br><span class="line"><span class="comment">	1.它能明确指定类型</span></span><br><span class="line"><span class="comment">	2.可以用c++的作用域规则将定义限制在特定的函数或文件中</span></span><br><span class="line"><span class="comment">	3.const可用于更复杂类型</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有效位是数字中有意义的位，如某山脉高度14157英尺为5个有效位，但写成约14000则只有2位有效位，因结果经过四舍五入精确到了千位，此时其余3位不过是占位符而已。且小数点位置不影响有效位，如将高度写成14.157千英尺，仍为5位有效位，因为这个值精确到了第5位。c与c++对有效位数要求：float至少32位，double至少48位，long double至少和double一样多，一般为80，96，或128位。</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/*运算符优先级法诀</span><br><span class="line"></span><br><span class="line">括号成员第一;        //括号运算符[]() 成员运算符.  -&gt;</span><br><span class="line"></span><br><span class="line">全体单目第二;        //所有的单目运算符比如++、 --、 +(正)、 -(负) 、指针运算*、&amp;</span><br><span class="line"></span><br><span class="line">乘除余三,加减四;   //这个&quot;余&quot;是指取余运算即%</span><br><span class="line"></span><br><span class="line">移位五，关系六;    //移位运算符：&lt;&lt; &gt;&gt; ，关系：&gt; &lt; &gt;= &lt;= 等</span><br><span class="line"></span><br><span class="line">等于(与)不等排第七;    //即== 和!=</span><br><span class="line"></span><br><span class="line">位与异或和位或，&quot;三分天下&quot;八九十;   //这几个都是位运算: 位与(&amp;)异或(^)位或(|)    </span><br><span class="line"></span><br><span class="line">逻辑与跟或;            //逻辑运算符:|| 和 &amp;&amp;</span><br><span class="line"></span><br><span class="line">十一和十二;            //注意顺序:优先级(||)  底于 优先级(&amp;&amp;) </span><br><span class="line"></span><br><span class="line">条件高于赋值,        //三目运算符优先级排到13 位只比赋值运算符和&quot;,&quot;高</span><br><span class="line"></span><br><span class="line">逗号运算级最低!    //逗号运算符优先级最低</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">c++自动执行的一些类型转换：</span><br><span class="line"><span class="number">1.</span>将一种算术类型的值赋给另一种类型值时发生强制转换，即<span class="keyword">int</span> a=<span class="number">3.8</span>; 但a的值为<span class="number">3</span>，强制类型转换</span><br><span class="line">	注意<span class="keyword">long</span>赋给<span class="keyword">int</span>这种范围缩小的会丢失精度，尽量避免。小赋大无所谓</span><br><span class="line"><span class="number">2.</span>以&#123;&#125;方式初始化时的转换（c++<span class="number">11</span>特性）：</span><br><span class="line">	列表初始化不允许缩窄，即变量的类型可能无法表示赋给它的值。例如不允许将浮点转化为整型，但不同整型间转化或整转浮可能被允许</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> code=<span class="number">66</span>;</span><br><span class="line">	<span class="keyword">int</span> x=<span class="number">6</span>;</span><br><span class="line">	<span class="keyword">char</span> c1&#123;<span class="number">31325</span>&#125;; <span class="comment">//缩窄了</span></span><br><span class="line">	<span class="keyword">char</span> c2&#123;<span class="number">66</span>&#125;;  <span class="comment">//允许，因为char可hold 66</span></span><br><span class="line">	<span class="keyword">char</span> c3&#123;code&#125;;  <span class="comment">//允许，code为符号常量</span></span><br><span class="line">	<span class="keyword">char</span> c4&#123;x&#125;;    <span class="comment">//不允许，因不是常量，你知道值为6，但在编译器看来，x是一个变量，其值可能很大</span></span><br><span class="line"><span class="number">3.</span>表达式中的转换</span><br><span class="line">	在计算表达式时,c++将<span class="keyword">bool</span>,<span class="keyword">char</span>,<span class="keyword">unsigned</span> <span class="keyword">char</span>,signer <span class="keyword">char</span>和<span class="keyword">short</span>值转换为<span class="keyword">int</span>,<span class="literal">true</span>化为<span class="number">1</span>，<span class="literal">false</span>为<span class="number">0</span>，总之，c++通过校验表来确定算术表达式中执行的转换</span><br><span class="line"></span><br><span class="line">C++<span class="number">11</span>校验表：</span><br><span class="line">	如果一个是<span class="keyword">long</span> <span class="keyword">double</span>,另一个也转换为<span class="keyword">long</span> <span class="keyword">double</span>.</span><br><span class="line">	否则，如果一个是<span class="keyword">double</span>,另一个也转换为<span class="keyword">double</span>.</span><br><span class="line">    否则，如果一个是<span class="keyword">float</span>,另一个也转换为<span class="keyword">float</span>.</span><br><span class="line">    否则，说明操作数都是整型，执行整型提升</span><br><span class="line">    如果有一个是<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span>,另一个也转化为<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span>.</span><br><span class="line">    否则，如果一个是<span class="keyword">long</span> <span class="keyword">int</span>另一个是 <span class="keyword">unsigned</span> <span class="keyword">int</span>, 结果取决于<span class="keyword">long</span> <span class="keyword">int</span>是否能表示<span class="keyword">unsigned</span> <span class="keyword">int</span>;	</span><br><span class="line">	如果能，<span class="keyword">unsigned</span> <span class="keyword">int</span>被转化为<span class="keyword">long</span> <span class="keyword">int</span>;不能，都被转化为<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span>.</span><br><span class="line">   	否则，如果一个是<span class="keyword">long</span> <span class="keyword">int</span>, 另一个也转换为 <span class="keyword">long</span> <span class="keyword">int</span>.</span><br><span class="line">    否则，如果一个是<span class="keyword">unsigned</span> <span class="keyword">int</span>, 另一个也转换为<span class="keyword">unsigned</span> <span class="keyword">int</span>.</span><br><span class="line">    都不是，都被保持<span class="keyword">int</span>.</span><br><span class="line">        </span><br><span class="line"><span class="number">4.</span>传递参数时转换通常由原型决定，你所传实参会依据形参类型被转换，有一些例外</span><br><span class="line"><span class="number">5.</span>强制类型转换</span><br><span class="line">	(<span class="keyword">long</span>)thorn;</span><br><span class="line">	<span class="keyword">long</span>(thorn); <span class="comment">//均可，但有更严格的</span></span><br><span class="line">	<span class="keyword">static_cast</span>&lt;<span class="keyword">long</span>&gt;(thorn); <span class="comment">//更严格</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h2><ul>
+<li><p>数组：</p>
+<ul>
+<li><p>只对数组的一部分初始化，编译器将把其他元素设置为0</p>
+</li>
+<li><p>c++11初始化数组新特性：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> ear[<span class="number">4</span>] &#123;<span class="number">1.2</span>,<span class="number">1.4</span>,<span class="number">1.3</span><span class="number">.1</span><span class="number">.2</span>&#125;;  <span class="comment">//OK</span></span><br><span class="line"><span class="keyword">float</span> key[<span class="number">100</span>] &#123;&#125;;  <span class="comment">//所有元素初始化为0</span></span><br><span class="line"><span class="keyword">long</span>  pig[<span class="number">3</span>] &#123;<span class="number">12</span>,<span class="number">23</span>,<span class="number">9.8</span>&#125;;  <span class="comment">//不对，因将浮点转为整型是缩窄</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>字符串：</p>
+<ul>
+<li><p>cin在获取字符数组数组输入时只读取一个单词，读取后会自动添加空字符</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">面向行的输入：getline()与get()</span><br><span class="line"><span class="number">1.</span><span class="comment">/*读取整行，以换行符来确定结尾，其中第一个参数为已经有指向的char*，无指向不能乱用，第二个参数为要读取的字符数，若为20，则最多读取19个字符，余下空间用于把键入换行符换为空字符。即会读取输入序列中换行符，但不保存它，只有在存储字符串时会用空字符来替换换行符*/</span></span><br><span class="line"><span class="built_in">cin</span>.getline(<span class="keyword">char</span>*,<span class="keyword">int</span>);  </span><br><span class="line"><span class="number">2.</span><span class="comment">/*参数意义相同，区别在于get()不再读取并丢弃换行符，而是将其留在输入队列中*/</span></span><br><span class="line"><span class="built_in">cin</span>.get(<span class="keyword">char</span>*,<span class="keyword">int</span>);  <span class="comment">//连用2次会出错，因换行符留在输入序列，第二个char*读到换行符将无法跨过</span></span><br><span class="line">(<span class="number">1</span>)<span class="built_in">cin</span>.get(name,<span class="number">10</span>);</span><br><span class="line">   <span class="built_in">cin</span>.get(); <span class="comment">//get的另一种变体可用于读取一个字符</span></span><br><span class="line">(<span class="number">2</span>)<span class="built_in">cin</span>.get(name,<span class="number">10</span>).get();   <span class="comment">//以上2种均可避免此种情况，第二种可行是因cin函数返回一个cin对象，可被继续用来调用get()函数</span></span><br><span class="line">(<span class="number">3</span>)<span class="built_in">cin</span>.getline(name1,size).getline(name2,size);  <span class="comment">//也是读取2行</span></span><br><span class="line"></span><br><span class="line">一般来说更推荐使用get(),好处在于可以判断停止读取的原因，如果下一个输入字符是换行符，则说明已读取了整行；否则说明该行中还有其他输入，因数组已填满而停止的读取</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空行：当get()读取空行后将设置失效位，意味着接下来的输入将被阻断,可用cin.clear();恢复</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">混合输入字符串和数字：</span><br><span class="line"><span class="keyword">int</span> year;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; year;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">80</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(a,<span class="number">80</span>);   <span class="comment">//会出错，原因显而易见，cin输入year后换行符还在输入序列，a中会保留一个空字符</span></span><br><span class="line">解决方法：在<span class="built_in">cin</span>&gt;&gt;year之后加上<span class="built_in">cin</span>.get();或<span class="built_in">cin</span>.get(ch);或(<span class="built_in">cin</span> &gt;&gt; year).get();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>string:</p>
+<ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">好处：类设计让程序能自动处理<span class="built_in">string</span>大小</span><br><span class="line"><span class="built_in">string</span> str1;  <span class="comment">//则创建一个长度为0的string对象</span></span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; str1;  <span class="comment">//程序将输入读取到str1中，将自动调整str1长度,因此通常来说使用string对象更方便</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c++<span class="number">11</span>字符串初始化:</span><br><span class="line"><span class="keyword">char</span> a[] &#123;<span class="string">"c++"</span>&#125;;</span><br><span class="line"><span class="built_in">string</span> b &#123;<span class="string">"c++"</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str1 = &quot;c++&quot;;</span><br><span class="line">string str2 = str1;  //但char数组不能直接赋值</span><br><span class="line">str1 += str2; //拼接字符串更简单</span><br><span class="line">getline(cin,str1); //str1 会根据输入自动调整</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>结构:</p>
+<ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c++<span class="number">11</span>初始化：<span class="comment">//同样注意不能缩窄</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">a</span>&#123;</span></span><br><span class="line">        <span class="keyword">int</span> q;</span><br><span class="line">    &#125;</span><br><span class="line">a duck&#123;<span class="number">10</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同类型结构可互相赋值</p>
+</li>
+</ul>
+</li>
+<li><p>枚举:提供了另一种创建符号常量的办法</p>
+<ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> color &#123;green,red,blue,yellow&#125;; <span class="comment">//这样green等均为符号常量</span></span><br><span class="line"><span class="keyword">int</span> a = red;<span class="comment">//枚举量是整型，可被提升为int类型，但int类型不可自动转换为枚举</span></span><br><span class="line"><span class="comment">//除强制转换外，只能将相应枚举常量赋给color类型变量</span></span><br><span class="line">a = color(<span class="number">3</span>); <span class="comment">//强制类型转换</span></span><br><span class="line">color c,d;     c+=d;<span class="comment">//枚举未定义算术运算符</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>指针:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常见错误：</span><br><span class="line"><span class="keyword">long</span>* fellow;</span><br><span class="line">*felllow = <span class="number">223</span>;  <span class="comment">//未给fellow定指向，程序会发生不可名状的严重错误</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>*pt = <span class="number">0xB8000000</span>; <span class="comment">//错误，虽然右侧是一个地址，但本质是一个数值，编译器并不知道</span></span><br><span class="line"><span class="keyword">int</span>*pt = (<span class="keyword">int</span>*)<span class="number">0xB8000000</span>; <span class="comment">//正确</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span>的使用：typeName * pointer_name = <span class="keyword">new</span> typeName; <span class="comment">//通用格式</span></span><br><span class="line"><span class="comment">//关键new的空间用完就delete，且要记住不可重复delete，除空指针外只可对new的地址delete</span></span><br><span class="line"><span class="keyword">new</span>创建动态数组:</span><br><span class="line"><span class="keyword">int</span> * psome = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];  <span class="comment">//此时psome指向分配空间的第一个int</span></span><br><span class="line"><span class="keyword">delete</span> [] psome;</span><br><span class="line"><span class="keyword">new</span>创建动态结构:</span><br><span class="line">struct a&#123;</span><br><span class="line">        <span class="keyword">int</span> q;</span><br><span class="line">    &#125;</span><br><span class="line">a * ps = <span class="keyword">new</span> a;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对指针变量+1，相当于它的值加上所指向类型的字节大小</p>
+</li>
+<li><p>一般来说给cout提供一个指针，它将打印地址。但如果指针类型为char*,则cout将显示指向的字符串</p>
+</li>
+</ul>
+</li>
+<li><p>vector</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">基本上，它是使用<span class="keyword">new</span>创建动态数组的替代品,即自动<span class="keyword">new</span>与<span class="keyword">delete</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">typename</span>&gt; vt(size);  <span class="comment">//声明一个名为vt的vector对象，可存储size个类型为typename的元素，size可是整型常量，也可以是整型变量</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>array(c++11)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">若需要长度固定的数组，<span class="built_in">array</span>对象更方便与安全</span><br><span class="line"><span class="built_in">array</span>&lt;<span class="keyword">int</span>, 5&gt; ai; <span class="comment">//创建包含5个int元素的array对象，同样同类型array可相互赋值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="循环与关系表达式"><a href="#循环与关系表达式" class="headerlink" title="循环与关系表达式"></a>循环与关系表达式</h2><ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>.setf(ios_base::boolalpha); <span class="comment">//该函数调用设置了一个标记，命令cout显示true与false而不是1与0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span> ; i &lt; <span class="number">5</span>; i++)</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"c++"</span>;    <span class="comment">//此种for循环中声明的变量只存在于for循环中，当程序离开循环后，这种变量将消失</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>++的前缀与后缀版本的策略：对于系统内置类型，采用哪种格式不会有差别；但对于用户定义的类型，若有</p>
+<p>用户定义的递增与递减运算符，则前缀格式效率更高</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> word !=<span class="string">"mate"</span>; <span class="comment">//string类重载运算符!=的方式使得至少有一个操作数为string对象时即可比较</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">创建类型别名用<span class="keyword">typedef</span>比define更好：</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BYTE char;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> BYTE;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于范围的for循环(c++11)</span></span><br><span class="line"><span class="keyword">double</span> prices[<span class="number">5</span>] &#123;<span class="number">1.0</span>,<span class="number">2.0</span>,<span class="number">3.0</span>,<span class="number">4.0</span>,<span class="number">5.0</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">double</span> x:prices)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;  <span class="comment">//但并不能修改元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">double</span> &amp;x : prices)</span><br><span class="line">	x = x * <span class="number">0.8</span>; <span class="comment">//可修改x的值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">循环与文本输入：</span><br><span class="line">(<span class="number">1</span>)使用原始的<span class="built_in">cin</span>输入:</span><br><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;ch;</span><br><span class="line"><span class="keyword">while</span>(ch!=<span class="string">'#'</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ch;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;ch;</span><br><span class="line">&#125;   <span class="comment">//问题在于输出会省略空格，因cin读取char值时与读取其他类型一样，将忽略空格和换行符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//那么如何显示空格呢？用cin.get(ch)；即可，会读取下一个字符，即使是空格</span></span><br><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line"><span class="built_in">cin</span>.get(ch);</span><br><span class="line"><span class="keyword">while</span>(ch!=<span class="string">'#'</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ch;</span><br><span class="line">    <span class="built_in">cin</span>.get(ch);</span><br><span class="line">&#125;</span><br><span class="line">(<span class="number">2</span>)常见的字符输入做法:每次读取一个字符，直到遇到EOF的输入循环的基本设计</span><br><span class="line"><span class="built_in">cin</span>.get(ch);</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">cin</span>.fail() == <span class="literal">false</span>)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="built_in">cin</span>.get(ch);</span><br><span class="line">&#125;  <span class="comment">//但有更好的改法</span></span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">cin</span>.fail())</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>.get(ch))</span><br><span class="line">    <span class="keyword">while</span>((ch = <span class="built_in">cin</span>.get()) != EOF)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件操作的open()函数默认会清除原有文件的内容</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/29/arch Linux虚拟机安装/" rel="next" title="win10 archlinux Vmware虚拟机安装">
+                <i class="fa fa-chevron-left"></i> win10 archlinux Vmware虚拟机安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/23/c++ primer plus学习(二)/" rel="prev" title="c++ primer plus学习（二）">
+                c++ primer plus学习（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">ShreenLiu</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c-primer-plus第二章"><span class="nav-number">1.</span> <span class="nav-text">c++ primer plus第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-primer-plus第三章"><span class="nav-number">2.</span> <span class="nav-text">c++ primer plus第三章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复合类型"><span class="nav-number">3.</span> <span class="nav-text">复合类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环与关系表达式"><span class="nav-number">4.</span> <span class="nav-text">循环与关系表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7#<app_key>",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
