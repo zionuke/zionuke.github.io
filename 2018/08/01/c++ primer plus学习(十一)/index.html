@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ primer plus学习（十一）">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/c++ primer plus学习(十一)/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-05T15:28:26.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++ primer plus学习（十一）">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/01/c++ primer plus学习(十一)/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>c++ primer plus学习（十一） | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/c++ primer plus学习(十一)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="ShreenLiu">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">c++ primer plus学习（十一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-01 21:17:55" itemprop="dateCreated datePublished" datetime="2018-08-01T21:17:55+08:00">2018-08-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-05 23:28:26" itemprop="dateModified" datetime="2018-12-05T23:28:26+08:00">2018-12-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/01/c++ primer plus学习(十一)/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/01/c++ primer plus学习(十一)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/01/c++ primer plus学习(十一)/" class="leancloud_visitors" data-flag-title="c++ primer plus学习（十一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h2 id="输入，输出和文件"><a href="#输入，输出和文件" class="headerlink" title="输入，输出和文件"></a>输入，输出和文件</h2><h4 id="1-c-输入和输出概述"><a href="#1-c-输入和输出概述" class="headerlink" title="1.c++输入和输出概述"></a>1.c++输入和输出概述</h4><ul>
+<li>流和缓存区：c++程序把输入和输出看做字节流。c++程序只是检查字节流，而不需要知道字节来自何方；同理，使用流，c++程序处理输出的方式将独立于其对象</li>
+<li>管理输入包含两步:<ul>
+<li>将流与输入去向的程序关联起来</li>
+<li>将流与文件连接起来</li>
+</ul>
+</li>
+<li>通常，使用缓存区可以更高效地处理输入和输出</li>
+</ul>
+<h4 id="2-流，缓冲区和iostream文件"><a href="#2-流，缓冲区和iostream文件" class="headerlink" title="2.流，缓冲区和iostream文件"></a>2.流，缓冲区和iostream文件</h4><ul>
+<li>iostream文件中包含一些专门设计用来管理流和缓存区的类，一些类如下:<ul>
+<li>streambuf类为缓存区提供了内存，并提供了用于填充缓存区，访问缓存区，刷新缓存区和管理缓存区内存的类方法</li>
+<li>ios_base类表示流的一般特征，如是否可读取，是二进制流还是文本流等</li>
+<li>ios类基于ios_base,其中包括了一个指向streambuf对象的指针成员</li>
+<li>ostream与istream从ios类派生而来，分别提供了输出和输入方法</li>
+</ul>
+</li>
+<li>重定向：标准输入和输出流通常连接着键盘和屏幕。但通过输入和输出重定向(&lt;)和(&gt;)</li>
+</ul>
+<h4 id="3-使用cout进行输出"><a href="#3-使用cout进行输出" class="headerlink" title="3.使用cout进行输出"></a>3.使用cout进行输出</h4><ul>
+<li><p>cout最重要的任务之一就是将数值类型(int或float)转换为以文本形式表示的字符流。也就是说，ostream类将数据内部表示(二进制位模式)转换为有字符字节组成的输出流。</p>
+</li>
+<li><p>c++重载了&lt;&lt;运算符，能够识别c++中所有的基本类型</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输出和指针：c++用指向字符串存储位置的指针来表示字符串。指针的形式可以是<span class="keyword">char</span>数组名，显式的<span class="keyword">char</span>指针或用引号括起的字符串</span><br><span class="line"><span class="keyword">char</span> name[<span class="number">5</span>] = <span class="string">"Daddy"</span>;</span><br><span class="line"><span class="keyword">char</span> *pn = <span class="string">"Mammy"</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; pn;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello!"</span>;<span class="comment">//方法使用字符串中的终止空字符来确定何时停止显式字符</span></span><br><span class="line"></span><br><span class="line">拼接输出：插入运算符的返回类型都是ostream&amp;,即函数原型为ostream &amp; <span class="keyword">operator</span>&lt;&lt;(type);</span><br><span class="line"><span class="comment">//这种返回类型意味着使用该运算符将返回一个指向ostream对象的引用，因此可以接连使用&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">其他ostream方法：put()与write() <span class="comment">//前者用于显式字符，后者用于显式字符串</span></span><br><span class="line"><span class="function">ostream &amp; <span class="title">put</span><span class="params">(<span class="keyword">char</span>)</span></span>;  </span><br><span class="line"><span class="built_in">cout</span>.put(<span class="string">'L'</span>).put(<span class="string">'W'</span>);</span><br><span class="line"></span><br><span class="line">basic_ostream&lt;<span class="keyword">char</span> T, traits&gt;&amp; write(<span class="keyword">const</span> char_type* s, streamsize n);</span><br><span class="line"><span class="comment">//函数第一个参数提供了要显式的字符串的地址，第二个参数指出要显示多少个字符</span></span><br><span class="line"><span class="built_in">cout</span>.write()调用返回<span class="built_in">cout</span>对象，还需注意write()方法并不会在遇到空字符时自动停止打印字符，而只是打印指定数目的字符，即使超出了字符串的边界！</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">刷新输出缓存区：如果程序不能在所希望时刷新输出，可以使用两个控制符中的一个来强行进行刷新，控制符flush刷新缓冲区，<span class="built_in">endl</span>刷新缓存区并插入一个换行符</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"a"</span> &lt;&lt;flush;</span><br><span class="line">flush(<span class="built_in">cout</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; flush;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用cout进行格式化：</p>
+<ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修改显示时使用的计数系统：如何设置显示整数时使用的计数系统：要控制是以什么进制显示可以使用dec,hex,oct控制符,下面函数调用将<span class="built_in">cout</span>对象的计数系统格式设置为十六进制</span><br><span class="line">hex(<span class="built_in">cout</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; hex; <span class="comment">//通常这么用</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">调整字段宽度：可以使用width成员函数将长度不同的数字放到宽度相同的字段中：方法原型如下</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">width</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">width</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line"><span class="comment">//第一种格式返回字段宽度的当前设置，第二种格式将字段宽度设置为i个空格，并返回以前的字段宽度值。这使得能够保存以前的值，以便以后恢复宽度值时使用</span></span><br><span class="line"><span class="comment">//width()方法只影响将显示地下一个项目，然后字段宽度将恢复为默认值。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">填充字符:</span><br><span class="line">在默认情况下<span class="built_in">cout</span>用空格填充字段中未被使用的部分，可以使用fill()成员函数来改变填充字符。</span><br><span class="line"><span class="built_in">cout</span>.fill(<span class="string">'*'</span>);  <span class="comment">//与字段宽度不同的是，新的填充字符将一直有效，直到更改它为止</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">设置浮点数的显示精度：</span><br><span class="line">浮点数精度的含义取决于输出模式。在默认情况下指的是显示地总位数。而在定点模式和科学模式下指的是小数点后面的位数。已经知道c++默认精度是<span class="number">6</span>位，但末尾的<span class="number">0</span>不显示。</span><br><span class="line">precision()成员函数使得能够选择其他值，例如下面语句将<span class="built_in">cout</span>精度设置为<span class="number">2</span></span><br><span class="line"><span class="built_in">cout</span>.precision(<span class="number">2</span>);  <span class="comment">//新的精度设置将一直有效，直到重新设置</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">打印末尾的<span class="number">0</span>和小数点：</span><br><span class="line">对于有些输出，保留末尾的<span class="number">0</span>更加美观。ios_base类提供了一个setf()函数能够控制多种格式化特性。</span><br><span class="line"></span><br><span class="line"><span class="comment">//细谈setf()</span></span><br><span class="line">这一块讨论的比较深入，详见P750</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还有一些标准控制符见P751</p>
+</li>
+<li><p>还有头文件iomanip</p>
+</li>
+</ul>
+</li>
+<li><p>用cin进行输入：由于参数类型为引用，因此cin能够直接修改用作参数的变量的值。</p>
+</li>
+<li><p>不同版本的抽取运算符查看输入流的方法是相同的。它们跳过空白(空格，换行符和制表符)，直到遇到非空白字符。即使对于单字符模式(参数类型为char,unsigned char或signed char),情况也是如此。&gt;&gt;运算符读取从非空白字符开始到与目标类型不匹配的第一个字符之间的全部内容</p>
+</li>
+<li><p>流状态：成员与描述详见P756—-这一块讲的也很深，以后返工</p>
+</li>
+<li><p>其他istream类方法：暂时终止学习此书——先开始调bug</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/c++ primer plus学习(十)/" rel="next" title="c++ primer plus学习（十）">
+                <i class="fa fa-chevron-left"></i> c++ primer plus学习（十）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/29/电信好导师.答疑(OJ平台解释)/" rel="prev" title="电信好导师.答疑(" oj平台解释")"="">
+                电信好导师.答疑("OJ平台解释") <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">ShreenLiu</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入，输出和文件"><span class="nav-number">1.</span> <span class="nav-text">输入，输出和文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-c-输入和输出概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.c++输入和输出概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-流，缓冲区和iostream文件"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.流，缓冲区和iostream文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用cout进行输出"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.使用cout进行输出</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7#<app_key>",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

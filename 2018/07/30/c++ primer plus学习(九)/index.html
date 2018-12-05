@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ primer plus学习（九）">
+<meta property="og:url" content="http://yoursite.com/2018/07/30/c++ primer plus学习(九)/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-05T15:28:26.437Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++ primer plus学习（九）">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/30/c++ primer plus学习(九)/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>c++ primer plus学习（九） | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/c++ primer plus学习(九)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="ShreenLiu">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">c++ primer plus学习（九）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 21:17:55" itemprop="dateCreated datePublished" datetime="2018-07-30T21:17:55+08:00">2018-07-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-05 23:28:26" itemprop="dateModified" datetime="2018-12-05T23:28:26+08:00">2018-12-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/30/c++ primer plus学习(九)/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/c++ primer plus学习(九)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/30/c++ primer plus学习(九)/" class="leancloud_visitors" data-flag-title="c++ primer plus学习（九）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h2 id="string类和标准模板库"><a href="#string类和标准模板库" class="headerlink" title="string类和标准模板库"></a>string类和标准模板库</h2><h4 id="1-string类"><a href="#1-string类" class="headerlink" title="1.string类"></a>1.string类</h4><ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">构造字符串：c++有<span class="number">9</span>个<span class="built_in">string</span>类构造函数，其中有<span class="number">2</span>个是c++<span class="number">11</span>新增的，注意这些方法都隐藏了一个事实：<span class="built_in">string</span>实际上是模板具体化basic_string&lt;<span class="keyword">char</span>&gt;的一个<span class="keyword">typedef</span>,同时省略了内存管理相关的参数</span><br><span class="line"><span class="comment">//size_type是一个依赖于实现的整形，在头文件string定义，string类将string::npos定义为字符串的最大长度，通常为unsigned int的最大值。且下述使用NBTS来表示以空字符结束的字符串---即传统的c字符串</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span>*s);<span class="comment">//将string对象初始化为s指向的NBTS</span></span><br><span class="line"><span class="built_in">string</span>(size_type n, <span class="keyword">char</span> c);<span class="comment">//创建一个包含n个元素的string对象，其中每个元素都被初始化为字符c</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span> &amp; str);<span class="comment">//将一个string对象初始化为string对象str(复制构造函数)</span></span><br><span class="line"><span class="built_in">string</span>();<span class="comment">//创建一个string对象，长度为0(默认构造函数)</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span>*s, size_type n);<span class="comment">//将string对象初始化为s指向的NBTS的前n个字符，即使超过了NBTS结尾</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Iter</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">string</span>(<span class="title">Iter</span> <span class="title">begin</span>, <span class="title">Iter</span> <span class="title">end</span>);</span><span class="comment">//将string对象初始化为区间[begin, end)内的字符，其中begin与end的行为就像指针，用于指定位置，范围包括begin在内，但不包括end</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span>&amp;str, <span class="built_in">string</span> size_type pos = <span class="number">0</span>, size_type n = npos);</span><br><span class="line"><span class="comment">//将一个string对象初始化为对象str中从位置pos开始到结尾的字符，或从位置pos开始的n个字符</span></span><br><span class="line"><span class="built_in">string</span>(<span class="built_in">string</span>&amp;&amp;str)<span class="keyword">noexcept</span>  </span><br><span class="line"><span class="comment">//c++11新增，将一个string对象初始化为string对象str,并可能修改str(移动构造函数)</span></span><br><span class="line"><span class="built_in">string</span>(<span class="built_in">initializer_list</span>&lt;<span class="keyword">char</span>&gt;il)</span><br><span class="line"><span class="comment">//c++11新增，将一个string对象初始化为初始化列表il中的字符</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>类输入:</span><br><span class="line">对于c-风格字符串，有<span class="number">3</span>种方式：</span><br><span class="line"><span class="keyword">char</span> info[<span class="number">100</span>];</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;info;<span class="comment">//read a word</span></span><br><span class="line"><span class="built_in">cin</span>.getline(info, <span class="number">100</span>);<span class="comment">//read a line, discard \n</span></span><br><span class="line"><span class="built_in">cin</span>.get(info, <span class="number">100</span>);<span class="comment">//read a line, leave \n in queue</span></span><br><span class="line">对于<span class="built_in">string</span>对象，有<span class="number">2</span>种方式：</span><br><span class="line"><span class="built_in">string</span> stuff;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;stuff;<span class="comment">//read a word</span></span><br><span class="line">getline(<span class="built_in">cin</span>, stuff);<span class="comment">//read a line, diacard \n</span></span><br><span class="line">两个版本的getline()都有一个可选参数，用于指定使用哪个字符来确定输入的边界；在功能上，它们之间的主要区别在于，<span class="built_in">string</span>版本的getline()将自动调整目标<span class="built_in">string</span>对象的大小，使之刚好能够存储输入的字符</span><br><span class="line"><span class="comment">//但string输入函数也有限制</span></span><br><span class="line">第一个限制因素是<span class="built_in">string</span>对象的最大允许长度，由敞亮<span class="built_in">string</span>::npos指定，若试图将整个文件读取到单个<span class="built_in">string</span>对象可能会成为限制因素；第二个限制因素是程序可以使用的内存量</span><br><span class="line"><span class="comment">//string版本的getline()函数从输入中读取字符，直到发生下列3种情况</span></span><br><span class="line">(<span class="number">1</span>)到达文件尾，这种情况下输入流的eofbit将被设置，意味着fail()和eof()都将返回<span class="literal">true</span></span><br><span class="line">(<span class="number">2</span>)遇到分界字符(默认为\n),这种情况下将把分界符从输入流中删除，但不存储它</span><br><span class="line">(<span class="number">3</span>)读取的字符数达到最大允许值(<span class="built_in">string</span>::npos和可供分配的内存字节数中较小的一个)，这种情况下，将设置输入流的failbit,这意味着fail()将返回<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用字符串：除了上述功能，string类还重载了比较功能，以及提供size()和length()返回字符串中的字符数；还有在字符串中搜索给定的子字符串或字符，即find()方法的4个版本，详见P661</p>
+</li>
+<li><p>string库还提供了很多其他功能的方法：比如capacity()返回当前分配给字符串的内存块的大小，而reserve()方法则可以请求内存块的最小长度;c_str()方法将返回一个指向c-风格字符串的指针，该c-风格字符串的内容与调用c_str()方法的sring对象相同</p>
+</li>
+</ul>
+<h4 id="2-智能指针模板类"><a href="#2-智能指针模板类" class="headerlink" title="2.智能指针模板类"></a>2.智能指针模板类</h4><ul>
+<li><p>智能指针是行为类似于指针的类对象，但这种对象还有其他功能</p>
+</li>
+<li><p>使用智能指针：这3个智能指针模板(auto_ptr, unique_ptr, shared_ptr)都定义了类似指针的对象，可以将new获得(直接或间接)的地址赋给这种对象。当智能指针过期时，其析构函数将使用delete来释放内存，因此无需记住稍后释放这些内存</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">要能使用智能指针对象，必须包含头文件memory，该文件模板定义；例如，模板<span class="built_in">auto_ptr</span>包含如下构造函数</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">X</span>&gt; <span class="title">class</span> <span class="title">auto_ptr</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">auto_ptr</span><span class="params">(X* p = <span class="number">0</span>)</span> <span class="title">throw</span><span class="params">()</span></span>;</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br><span class="line">使用如下：</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="keyword">double</span>&gt; pd(<span class="keyword">new</span> <span class="keyword">double</span>);<span class="comment">//new double是new返回的指针，指向新分配的内存块</span></span><br><span class="line"><span class="comment">//注意到智能指针模板位于名称空间std中；且shared_ptr和unique_ptr是c++11新增的类</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先说一下全部三种智能指针都应避免的一点：</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">vacation</span><span class="params">(<span class="string">"hansome!"</span>)</span></span>;</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; pvac(&amp;vacation);</span><br><span class="line"><span class="comment">//pvac过期时，程序将把delete用于非堆内存，这是错的</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有关智能指针的注意事项：首先，为何摒弃<span class="built_in">auto_ptr</span>呢？</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; ps(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"I am happy!"</span>));</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; vocation;</span><br><span class="line">vocation = ps;</span><br><span class="line"><span class="comment">//上述代码会导致程序试图删除同一个对象2次</span></span><br><span class="line">方法如下：</span><br><span class="line">(<span class="number">1</span>)定义赋值运算符，使之进行深复制。这样两个指针将指向不同的对象，其中的一个对象是另一个对象的副本</span><br><span class="line">(<span class="number">2</span>)建立所有权概念，对于特定的对象，只能有一个智能指针可拥有它，这样只有拥有对象的智能指针的构造函数会删除该对象。然后，让赋值操作转让所有权。这就是用于<span class="built_in">auto_ptr</span>和<span class="built_in">unique_ptr</span>的策略，但<span class="built_in">unique_ptr</span>更严格</span><br><span class="line">(<span class="number">3</span>)创建智能更高的指针，跟踪引用特定对象的智能指针计数。这称为引用计数。例如，赋值时，计数将加<span class="number">1</span>，而指针过期时，指针将减<span class="number">1</span>，仅当最后一个指针过期时，才调用<span class="keyword">delete</span>。这是<span class="built_in">shared_ptr</span>采用的策略。</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unique_ptr</span>为何优于<span class="built_in">auto_ptr</span>：</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p1(<span class="keyword">new</span> <span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p2;</span><br><span class="line">p2 = p1; <span class="comment">//在赋值之后p2将接管string对象的所有权，这是好事，防止p1与p2的析构函数试图删除同一个对象；但如果程序后续试图使用p1，则是坏事，因p1不再指向有效的数据</span></span><br><span class="line">而上述代码若将声明均改为<span class="built_in">unique_ptr</span>则编译不会通过，非法操作，避免了p1不再指向有效数据的问题</span><br><span class="line"><span class="comment">//总之，程序试图将一个unique_ptr赋给另一个时，如果原unique_ptr是个临时右值，编译器允许这样做；如果源unique_ptr将存在一段时间，编译器将禁止这样做</span></span><br><span class="line"></span><br><span class="line">相比于<span class="built_in">auto_ptr</span>,<span class="built_in">unique_ptr</span>还有一个优点：它有一个可用于数组的变体，即<span class="keyword">delete</span>[]</span><br><span class="line"><span class="comment">//最后注意：使用new分配内存时，才能使用auto_ptr与shared_ptr，使用new []分配内存时，不能使用它们。不适用new分配内存时，不能使用auto_ptr或shared_ptr；不使用new[]或new分配内存时，不能使用unique_ptr</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择智能指针：如果程序要使用多个指向同一对象的指针，应选择shared_ptr；若程序不需要多个指向同一对象的指针，则可使用unique_ptr</p>
+</li>
+</ul>
+<h4 id="3-标准模板库"><a href="#3-标准模板库" class="headerlink" title="3.标准模板库"></a>3.标准模板库</h4><ul>
+<li>STL提供了一组表示容器，迭代器，函数对象和算法的模板。容器是一个与数组类似的单元，可以存储若干个值。STL容器是同质的，即存储的值的类型相同；算法是完成特定任务的处方；迭代器能够用来遍历容器的对象，是广义指针；函数对象是类似于函数的对象，可以是类对象或函数指针。</li>
+<li>STL不是面向对象编程，而是泛型编程</li>
+</ul>
+<h5 id="1-模板类vector"><a href="#1-模板类vector" class="headerlink" title="1.模板类vector"></a>1.模板类vector</h5><ul>
+<li><p>在头文件vector中定义了vector模板</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">要创建<span class="built_in">vector</span>模板对象，可以使用通常的&lt;type&gt;表示法来指出要使用的类型。另外，<span class="built_in">vector</span>模板使用动态内存分配，因此可以用初始化参数来指出需要多少矢量</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> vector</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ratings(<span class="number">5</span>);<span class="comment">// a vector of 5 ints</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; scores(n);<span class="comment">//a vector of n doubles</span></span><br><span class="line">由于[]被重载，因此创建<span class="built_in">vector</span>对象后可使用通常的数组表示法来访问各个元素：</span><br><span class="line">ratings[<span class="number">0</span>] = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n ; i++)</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; scores[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">分配器：与<span class="built_in">string</span>类相似。各种STL容器模板都提供一个可选的模板参数，该参数指定使用哪个分配器对象来管理内存。例如<span class="built_in">vector</span>模板的开头与下面类似：</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">allocator</span> = <span class="title">allocator</span>&lt;T&gt;&gt;</span></span><br><span class="line"><span class="class">	<span class="title">class</span> <span class="title">vector</span>&#123;</span>...</span><br><span class="line">如果省略该模板参数的值，则容器模板将默认使用allocator&lt;T&gt;类。这个类使用<span class="keyword">new</span>和<span class="keyword">delete</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">可对矢量执行的操作：所有的STL容器都提供了一些基本方法，包括size()--返回容器中元素数目,swap()--交换两个容器的内容，begin()--返回一个指向容器中第一个元素的迭代器，end()--返回一个表示超过容器尾的迭代器；迭代器是一个广义指针。事实上，它可以是指针，也可以是一个可对其执行类似指针的操作---如*和++的对象。每个容器类都定义了一个合适的迭代器，该迭代器的类型是一个名为iterator的<span class="keyword">typedef</span>，其作用域为整个类</span><br><span class="line"><span class="comment">//例如要为vector的double类型规范声明一个迭代器</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;::iterator pd;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; scores;</span><br><span class="line">pd = scores.begin();</span><br><span class="line">*pd = <span class="number">22.3</span>;</span><br><span class="line">++pd;</span><br><span class="line">还有一个c++<span class="number">11</span>自动类型推断很有用的地方，例如：</span><br><span class="line"><span class="keyword">auto</span> pd = scores.begin();</span><br><span class="line">end()成员函数标识超过结尾的位置</span><br><span class="line"><span class="keyword">for</span> (pd = scores.begin();pd!=scores.end();pd++)</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *pd &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">push_back()是一个方便的方法，它将元素添加到矢量末尾。这样做时，它将负责内存管理，增加矢量的长度，使之能够容纳新的成员。</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; scores;</span><br><span class="line"><span class="keyword">double</span> temp;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;temp&amp;&amp;temp&gt;=<span class="number">0</span>)</span><br><span class="line">    scores.push_back(temp);</span><br><span class="line"></span><br><span class="line">erase()方法删除矢量中给定区间的元素。它接受<span class="number">2</span>个迭代器参数，它们定义了要删除的区间。其中第一个迭代器指向区间的起始处，第二个迭代器位于区间终止处的后一个位置。</span><br><span class="line">scores.erase(scores.begin(),scores.begin()+<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">insert()方法的功能与erase()相反。它接受<span class="number">3</span>个迭代器参数，第一个参数指定了新元素的插入位置，第二个和第三个迭代器参数定义了被插入区间，该区间通常是另一个容器对象的一部分</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; old_v;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; new_v;</span><br><span class="line">old_v.insert(old_v.begin(),new_v.begn()+<span class="number">1</span>,new_v.end());</span><br><span class="line"><span class="comment">//上述代码将矢量new_v中除第一个元素外的所有元素插入到old_v矢量的第一个元素前面</span></span><br><span class="line"></span><br><span class="line">综合示例见P678</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">对矢量可执行的其他操作:比如搜索，排序，随机排序等。但矢量模板并未包含执行这些常见操作的方法。STL从更广泛的角度定义了非成员函数来执行这些操作，即不是为每个容器定义find()成员函数，而是定义了一个适用于所有容器类的非成员函数find()。这样省去了大量重复操作</span><br><span class="line">来看<span class="number">3</span>个具有代表性的STL函数：for_each(),random_shuffle()和sort()。</span><br><span class="line">(<span class="number">1</span>)for_each()函数可用于很多容器类，它接受<span class="number">3</span>个参数。前<span class="number">2</span>个是定义容器中区间的迭代器，最后一个是指向函数的指针(更普遍的说，最后一个参数是一个函数对象，函数对象将稍后介绍)。此函数将被指向的函数应用于容器区间的各个元素。被指向的函数不能修改容器元素的值。可以用for_each()循环来代替<span class="keyword">for</span>循环</span><br><span class="line">例如，可将</span><br><span class="line"><span class="built_in">vector</span>&lt;Review&gt;::iterator pr;</span><br><span class="line"><span class="keyword">for</span> (pr = books.begin();pr != books.end(); pr++)</span><br><span class="line">    ShowReview(*pr);</span><br><span class="line">替换为：</span><br><span class="line">for_each(books.begin(),books.end(),ShowReview);<span class="comment">//这样可避免显示地使用迭代器变量</span></span><br><span class="line">(<span class="number">2</span>)Random_shuffle()函数接受两个指定区间的迭代器参数，并随机排列该区间中的元素。</span><br><span class="line">例如，下面的参数随机排列books矢量中所有元素</span><br><span class="line">random_shuffle(books.begin(),books.end());</span><br><span class="line"><span class="comment">//与可用于任何容器类的for_each不同，该函数要求容器类允许随机访问，vector类可以做到这一点</span></span><br><span class="line">(<span class="number">3</span>)sort()函数也要求容器支持随机访问。该函数有<span class="number">2</span>个版本，第一个版本接受两个定义区间的迭代器参数，并使用为存储在容器中的类型元素定义的&lt;运算符，对区间中的元素进行操作。</span><br><span class="line">例如，下面的语句按升序对cool的内容进行排序</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cool;</span><br><span class="line">sort(cool.begin(), cool.end());</span><br><span class="line"><span class="comment">//如果容器元素是用户定义的对象，则要使用sort()，必须定义能够处理该类型对象的operator&lt;()函数</span></span><br><span class="line">第二个版本接受<span class="number">3</span>个参数，前<span class="number">2</span>个参数也是指定区间的迭代器，最后一个参数是指向要使用的函数的指针</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">基于范围的<span class="keyword">for</span>循环c++<span class="number">11</span>:</span><br><span class="line">for_each(books.begin(),books.end(),ShowReview);</span><br><span class="line">可修改为</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x: books) ShowReview(x);</span><br><span class="line"><span class="comment">//根据books的类型(vector&lt;Review&gt;)，编译器将推断出x的类型为Review,而循环将依次将books中的每个Review对象传递给ShowReview()</span></span><br><span class="line">不同于for_each(),基于范围的<span class="keyword">for</span>循环可以修改容器的内容，诀窍是指定一个引用参数</span><br><span class="line">例如，假设有如下函数</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Inflate</span><span class="params">(Review &amp;r)</span></span>&#123;r.rating++&#125;;</span><br><span class="line">可使用如下循环对books的每个元素执行该函数:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;x:books) Inflate(x);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-泛型编程"><a href="#4-泛型编程" class="headerlink" title="4.泛型编程"></a>4.泛型编程</h4><ul>
+<li><p>泛型编程关注的是算法，泛型编程旨在编写独立于数据类型的代码。</p>
+</li>
+<li><p>为何使用迭代器：模板使得算法独立于存储的数据类型，而迭代器使算法独立于使用的容器类型。详见P685。从中可以看出泛型编程是让函数不仅独立于容器中存储的数据类型，而且独立于容器本身的数据结构</p>
+</li>
+<li><p>STL使得每个容器类定义了相应的迭代器类型，迭代器可能为指针或对象，但不管实现如何，迭代器都将提供所需的操作。其次，每个容器类都有一个超尾标记。</p>
+</li>
+<li><p>总结一下STL方法：首先处理容器的算法，应尽可能用通用的术语来表示算法，使之独立于数据类型和容器类型。为使通用算法能够适用于具体情况，应定义能够满足算法需求的迭代器，并把要求加到容器设计上</p>
+</li>
+<li><p>迭代器类型：STL定义了5种迭代器。这5种都可以*和比较，看其是否相等。详细介绍见P688</p>
+</li>
+<li><p>迭代器也有层次结构，详见P690</p>
+</li>
+<li><p>概念，改进和模型：详见P690—-这一段讲的很深，以后要返工</p>
+</li>
+<li><p>容器种类：容器是存储其他对象的对象。一些基本的容器特征见P695</p>
+</li>
+<li><p>c++11新增的容器要求见P696</p>
+</li>
+<li><p>序列的要求见P697</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/c++ primer plus学习(八)/" rel="next" title="c++ primer plus学习（八）">
+                <i class="fa fa-chevron-left"></i> c++ primer plus学习（八）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/31/c++ primer plus学习(十)/" rel="prev" title="c++ primer plus学习（十）">
+                c++ primer plus学习（十） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">ShreenLiu</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#string类和标准模板库"><span class="nav-number">1.</span> <span class="nav-text">string类和标准模板库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-string类"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.string类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-智能指针模板类"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.智能指针模板类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-标准模板库"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.标准模板库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-模板类vector"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1.模板类vector</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-泛型编程"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.泛型编程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7#<app_key>",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

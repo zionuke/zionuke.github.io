@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win10 archlinux Vmware虚拟机安装">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/arch Linux虚拟机安装/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-05T15:21:51.108Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="win10 archlinux Vmware虚拟机安装">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/29/arch Linux虚拟机安装/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>win10 archlinux Vmware虚拟机安装 | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/arch Linux虚拟机安装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="ShreenLiu">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">win10 archlinux Vmware虚拟机安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-29 21:17:55" itemprop="dateCreated datePublished" datetime="2018-05-29T21:17:55+08:00">2018-05-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-05 23:21:51" itemprop="dateModified" datetime="2018-12-05T23:21:51+08:00">2018-12-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/29/arch Linux虚拟机安装/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/05/29/arch Linux虚拟机安装/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/29/arch Linux虚拟机安装/" class="leancloud_visitors" data-flag-title="win10 archlinux Vmware虚拟机安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h2 id="1-首先就是我一开始在纠结怎么截图"><a href="#1-首先就是我一开始在纠结怎么截图" class="headerlink" title="1.  首先就是我一开始在纠结怎么截图"></a>1.  首先就是我一开始在纠结怎么截图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+alt+a   //可启用qq截图</span><br></pre></td></tr></table></figure>
+<h2 id="2-正式创建虚拟机"><a href="#2-正式创建虚拟机" class="headerlink" title="2. 正式创建虚拟机"></a>2. 正式创建虚拟机</h2><ul>
+<li>注意几个选择把，首先是选择自定义配置</li>
+<li>选择稍后安装操作系统</li>
+<li>客户机操作系统选择Linux，版本为其他Linux 4.x内核x86</li>
+<li>之后一路下一步默认选项即可</li>
+<li>选中新建的虚拟机，右键弹出菜单，点击“设置’–”硬件“—CD/DVD（IDE）  ，在又侧，选“使用ISO镜像文件”，将下载好的Linux镜像文件载入进来</li>
+</ul>
+<h2 id="3-正式安装开始"><a href="#3-正式安装开始" class="headerlink" title="3.正式安装开始"></a>3.正式安装开始</h2><ol>
+<li>首先运行虚拟机，选择最上方x86</li>
+<li>之后开始使用命令行安装</li>
+<li>首先检查是否已联网，这很重要，因为arch要下载很多东西</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Ping -c 4 www.baidu.com     //检查并没有问题</span><br></pre></td></tr></table></figure>
+<p>如果ping的结果是找不到该主机，可能是由于dhcp服务没有开启，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl dhcpcd.service</span><br></pre></td></tr></table></figure>
+<p>确保联网后进行下一步</p>
+<h2 id="4-测试系统时间"><a href="#4-测试系统时间" class="headerlink" title="4. 测试系统时间"></a>4. 测试系统时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># timedatectl status</span><br></pre></td></tr></table></figure>
+<p>检测发现时间不对<br>于是输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+<p>开启ntp服务，它会每隔11分钟进行一次网络对时。然后在查看一下系统时间状态，正常</p>
+<h2 id="5-测试存储设备"><a href="#5-测试存储设备" class="headerlink" title="5. 测试存储设备"></a>5. 测试存储设备</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># lsblk</span><br></pre></td></tr></table></figure>
+<p>查看存储设备状态。在sda节点下（准确的说是sdx，有几个设备就有几个sdx）看看有没有sda1这样的，每一个带数字的都是该物理硬盘分出来的区。依据刚才的设置，这里只有sda一个20G的硬盘。</p>
+<h2 id="6-磁盘分区"><a href="#6-磁盘分区" class="headerlink" title="6. 磁盘分区"></a>6. 磁盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cfdisk</span><br></pre></td></tr></table></figure>
+<p>这里就是我踩过的最大一个坑，因为这里的失误，导致后面grub总是安装不了。</p>
+<p><strong>关键在于，不管你怎么分区，GPT，无论用 BIOS 还是 UEFI。开头都分一个小的分区，最小 1M，我给的是 100M，类型为 21686148-6449-6E6F-744E-656564454649，fdisk 中为 04 BIOS boot。<br>而且最后一个分区不要用完磁盘，末尾 1M 空出不要用，我空 100M。<br>开头的空间是bios保留分区，防止只认mbr的程序把gpt写坏的<br>最末尾的空间是用来备份分区表的</strong></p>
+<blockquote>
+<p>安装 GRUB 前，在一个没有文件系统的磁盘上，用 fdisk 或 gdisk 创建一个 +1M 分区，设置为 BIOS boot 类型，在 fdisk 中的类型号是 4, 在 gdisk 中的类型是 ef02，在 parted 中是 bios_grub。此分区可以在磁盘前 2TB 的任何位置。</p>
+</blockquote>
+<p><strong>上述就是症结所在，引用wiki中的说明</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># lsblk  //检查发现节点已创建</span><br></pre></td></tr></table></figure>
+<p>我这里是创建了sda2,sda3,sda4。其中sda2为home，sda3为扩展分区，sda4为交换分区</p>
+<h2 id="7-格式化分区"><a href="#7-格式化分区" class="headerlink" title="7. 格式化分区"></a>7. 格式化分区</h2><p>对于交换分区，格式化命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkswap /dev/sda3</span><br></pre></td></tr></table></figure>
+<p>开启使用交换分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># swapon /dev/sda3</span><br></pre></td></tr></table></figure>
+<p>格式化根分区和家目录分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda1</span><br><span class="line">mkfs.ext4 /dev/sda2</span><br></pre></td></tr></table></figure>
+<h2 id="8-挂载各个分区"><a href="#8-挂载各个分区" class="headerlink" title="8. 挂载各个分区"></a>8. 挂载各个分区</h2><p><strong>注意一点，最开始分的sda1与sda5不用进行任何操作，甚至不用格式化，不需要挂载，这是留着以后用的</strong></p>
+<p>使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/sda1 /mnt</span><br></pre></td></tr></table></figure>
+<p>把根分区挂载在/mnt目录下<br>再使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /mnt/home</span><br></pre></td></tr></table></figure>
+<p>在/mnt目录下创建home目录，注意，如果你分了多个分区<br>需要挂载boot，usr，opt目录等，均要在挂载完根目录后在/mnt目录下创建各个分区的目录。再进行挂载。</p>
+<p>使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/sda2 /mnt/home</span><br></pre></td></tr></table></figure></p>
+<p>挂载家目录</p>
+<h2 id="9-安装系统"><a href="#9-安装系统" class="headerlink" title="9.安装系统"></a>9.安装系统</h2><p>挂载好分区之后，就可以安装arch了。第一件事情是先修改一下arch的镜像源，使用国内的镜像速度更快，亲测更快！！！。</p>
+<p>修改镜像源需要编辑/etc/pacman.d/mirrorlist文件。可以先用nano查看一下该文件，查看完成之后使用Ctrl+X退出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+<p>利用正则表达式工具grep工具来将中国的源取出来。首先，先切换到软件源所在目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pacman.d</span><br></pre></td></tr></table></figure>
+<p>然后用grep取出中国的源。用-A参数的会用–分隔符分隔每一条匹配，因此再次使用grep工具去掉前一次结果产生的分隔符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># grep -A 1 &apos;##.*China&apos; mirrorlist|grep -v &apos;\-\-&apos;&gt; mirrorlist2</span><br></pre></td></tr></table></figure>
+<p>最后将中国的源放到镜像源列表的最前面。这里先反过来，将原来的镜像源追加到中国的源后面，然后将追加完成之后的文件替换掉原来的镜像源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cat mirrorlist&gt;&gt;mirrorlist2</span><br><span class="line"># mv mirrorlist2 mirrorlist</span><br></pre></td></tr></table></figure>
+<p>镜像源修改完成之后需要刷新一下pacman的缓存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -Syy</span><br></pre></td></tr></table></figure>
+<p>修改完镜像源，开始安装基本系统了。pacman会从网络上下载最新的软件包开始安装。-i参数是在安装前进行确认，出现确认提示的话直接全选即可（一路enter）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacstrap -i /mnt base base-devel</span><br></pre></td></tr></table></figure>
+<p>配置新系统<br>安装完成系统之后需要生成fstab文件。生成之后需要查看一下是否生成成功。如果不成功需要重新生成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</span><br><span class="line"># nano /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<p>进入新系统<br>然后就可以进入新系统进行配置了。先进入新系统。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># arch-chroot /mnt /bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>进入新系统之后会发现命令提示符也发生了相应的变化。 </p>
+<p>区域和时间设置<br>区域设置需要设置两个文件：locale.gen和locale.conf文件。</p>
+<p>先使用nano打开/etc/locale.gen文件，然后取消en_US.UTF-8、zh_CN.UTF-8、zh_TW.UTF-8三行的注释。然后运行locale-gen命令生成locale信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/locale.gen</span><br><span class="line"># locale-gen</span><br></pre></td></tr></table></figure></p>
+<p>然后生成一个locale.conf文件。ps:这里最好使用英文，使用别的语言可能会导致终端乱码。(亲自踩坑，一把辛酸泪)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure></p>
+<p>首先先选择时区：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tzselect</span><br></pre></td></tr></table></figure></p>
+<p>先按4选择Asia，在按9选择China，再按1选择北京时间，按1选择yes。<br>然后将时区链接到自己的时区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></p>
+<p>将时间标准设置为UTC，有的虚拟机有这项设置则不用设置（例如VirtualBox就有设置硬件事件为UTC的选项，lj vmware不行~）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># hwclock --systohc --utc</span><br></pre></td></tr></table></figure></p>
+<p>设置root密码和创建新用户<br>使用不带参数的passwd可以设置root密码。<br><strong>这里我还没搞明白，顺序问题应该是，我设置不了密码，无法输入，目前系统装好了，再试试</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># passwd</span><br></pre></td></tr></table></figure>
+<p>安装启动加载器<br>先安装grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S grub</span><br></pre></td></tr></table></figure>
+<h2 id="10-安装完成后，再使用"><a href="#10-安装完成后，再使用" class="headerlink" title="10.安装完成后，再使用"></a>10.安装完成后，再使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># grub-install --recheck /dev/sda</span><br></pre></td></tr></table></figure>
+<p>注意这里的分区不需要指定分区数字，不要写成/dev/sda1这样的。</p>
+<p><strong>踩得大坑。。。主要是分区要搞好</strong></p>
+<p>如果没有错误提示的话，就说明安装成功。<br><strong>应该会显示Is=installation finished，成功的话</strong><br>然后自动生成一个配置文件，默认的配置文件可以适应大部分情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>配置网络<br>并在 /etc/hosts 添加同样的主机名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/hosts</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"></span><br><span class="line"># /etc/hosts: static lookup table for host names</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#&lt;ip-address&gt; &lt;hostname.domain.org&gt; &lt;hostname&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1    localhost.localdomain  localhost 主机名   </span><br><span class="line"></span><br><span class="line">::1          localhost.localdomain  localhost 主机名</span><br><span class="line"></span><br><span class="line"># End of file</span><br></pre></td></tr></table></figure></p>
+<p>启动有线网服务<br>如果虚拟机重启没有网的话需要让它开机自启动。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable dhcpcd.service</span><br></pre></td></tr></table></figure></p>
+<h2 id="11-退出并重启系统"><a href="#11-退出并重启系统" class="headerlink" title="11.退出并重启系统"></a>11.退出并重启系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># exit</span><br><span class="line"># umount -R /mnt</span><br><span class="line"># reboot</span><br></pre></td></tr></table></figure>
+<p><strong>目前到了这一步，正在装新东西<br>顺带一提，一开始登陆时默认输入root登陆，不知道为什么<br>应该贴一张图，但断网了。。。用户名是draongliu<br>很霸气有木有！</strong></p>
+<h2 id="12-图形界面安装"><a href="#12-图形界面安装" class="headerlink" title="12.图形界面安装"></a>12.图形界面安装</h2><p>下面开始安装图形界面</p>
+<p>首先是装Xorg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S xorg-server xorg-xinit</span><br></pre></td></tr></table></figure></p>
+<p>显卡驱动<br>下面安装显卡驱动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S xf86-video-vesa</span><br></pre></td></tr></table></figure></p>
+<h3 id="GNOME桌面"><a href="#GNOME桌面" class="headerlink" title="GNOME桌面"></a>GNOME桌面</h3><p>gnome桌面只要安装gnome包即可，还有一个gnome-extra包可以提供额外的常用软件和几个游戏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S gnome gnome-extra</span><br></pre></td></tr></table></figure></p>
+<p>然后安装gdm登录管理器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S gnome gdm</span><br></pre></td></tr></table></figure></p>
+<p>将gdm设置为开机自启动，这样开机时会自动载入桌面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable gdm</span><br></pre></td></tr></table></figure></p>
+<p><strong>目前是新建了用户，但是打不开Terminal，图形界面装的gnome。。。又踩到坑了，我忘记在reboot前安装中文字体了，现在进不了terminal。。。</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/c++ primer plus学习(一)/" rel="prev" title="c++ primer plus学习（一）">
+                c++ primer plus学习（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">ShreenLiu</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-首先就是我一开始在纠结怎么截图"><span class="nav-number">1.</span> <span class="nav-text">1.  首先就是我一开始在纠结怎么截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-正式创建虚拟机"><span class="nav-number">2.</span> <span class="nav-text">2. 正式创建虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-正式安装开始"><span class="nav-number">3.</span> <span class="nav-text">3.正式安装开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-测试系统时间"><span class="nav-number">4.</span> <span class="nav-text">4. 测试系统时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-测试存储设备"><span class="nav-number">5.</span> <span class="nav-text">5. 测试存储设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-磁盘分区"><span class="nav-number">6.</span> <span class="nav-text">6. 磁盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-格式化分区"><span class="nav-number">7.</span> <span class="nav-text">7. 格式化分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-挂载各个分区"><span class="nav-number">8.</span> <span class="nav-text">8. 挂载各个分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-安装系统"><span class="nav-number">9.</span> <span class="nav-text">9.安装系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-安装完成后，再使用"><span class="nav-number">10.</span> <span class="nav-text">10.安装完成后，再使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-退出并重启系统"><span class="nav-number">11.</span> <span class="nav-text">11.退出并重启系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-图形界面安装"><span class="nav-number">12.</span> <span class="nav-text">12.图形界面安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GNOME桌面"><span class="nav-number">12.1.</span> <span class="nav-text">GNOME桌面</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz#<app_id>",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7#<app_key>",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
