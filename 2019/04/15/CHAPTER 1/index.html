@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="neural networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural network and deep learning chapter 1">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/CHAPTER 1/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz0.png">
+<meta property="og:image" content="file:///C:/Users/win10/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554863669057.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554863828419.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554864066587.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554864291945.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554864444929.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz4.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz5.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz6.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz8.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554865975692.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554866031675.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554866064536.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz9.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554867255547.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554867304979.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz11.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554870990338.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554870998809.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz12.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554873916957.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554873947222.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554874037352.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/Users/win10/AppData/Roaming/Typora/typora-user-images/1554875618347.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz14.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz15.png">
+<meta property="og:updated_time" content="2019-04-24T12:46:14.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neural network and deep learning chapter 1">
+<meta name="twitter:image" content="http://neuralnetworksanddeeplearning.com/images/tikz0.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/CHAPTER 1/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Neural network and deep learning chapter 1 | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/CHAPTER 1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="A dream catcher">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Neural network and deep learning chapter 1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-15 21:33:55" itemprop="dateCreated datePublished" datetime="2019-04-15T21:33:55+08:00">2019-04-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-24 20:46:14" itemprop="dateModified" datetime="2019-04-24T20:46:14+08:00">2019-04-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/15/CHAPTER 1/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/15/CHAPTER 1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/15/CHAPTER 1/" class="leancloud_visitors" data-flag-title="Neural network and deep learning chapter 1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h1 id="CHAPTER-1"><a href="#CHAPTER-1" class="headerlink" title="CHAPTER 1"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html" target="_blank" rel="noopener">CHAPTER 1</a></h1><h1 id="Using-neural-nets-to-recognize-handwritten-digits"><a href="#Using-neural-nets-to-recognize-handwritten-digits" class="headerlink" title="Using neural nets to recognize handwritten digits"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html" target="_blank" rel="noopener">Using neural nets to recognize handwritten digits</a></h1><ul>
+<li><h4 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h4><p>我们这一章的目的是只用74行纯代码来写出一个神经网络模型用来识别手写数字，通过这一章你将体会到神经网络与深度学习的魅力</p>
+</li>
+<li><h4 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h4><p>计算机要能识别数字并不像你我一样那么简单，比如你尝试想一下如何写一个程序让计算机来识别图片中的手写数字？我们可以换一个思路，神经网络是怎么处理的呢？它是通过输入大量的training examples,然后开发出一个能从那些training examples中学习的系统，即通过实例来自动参考和形成识别数字的规则</p>
+</li>
+<li><h4 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h4><p>我们专注于handwriting recognition是因为它是一个很好的学习neural networks的典型问题，可以为以后深入deep learning和其他应用打下良好基础</p>
+</li>
+<li><h3 id="让我们赶快开始吧"><a href="#让我们赶快开始吧" class="headerlink" title="让我们赶快开始吧"></a>让我们赶快开始吧</h3></li>
+</ul>
+<h3 id="Perceptrons"><a href="#Perceptrons" class="headerlink" title="Perceptrons"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#perceptrons" target="_blank" rel="noopener">Perceptrons</a></h3><p>这是一种artificial neuron，虽然今天常用的是sigmoid neuron,但通过perceptrons我们才可以理解sigmoid neuron为什么这么定义。</p>
+<ul>
+<li><p>perceptrons输入几个二进制数x1,x2,…，产生一个二进制输出</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz0.png" alt="img"></p>
+</li>
+<li><p>Rosenblatt提出了一种计算输出的方法。即引入权重w1,w2,…实数表示相应输入对输出的重要性。神经元输出0或1根据加权和<img src="file:///C:/Users/win10/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" alt="img">是小于或大于一个threshold value.这个阈值也是一个实数，它是这个神经元的参数。数学表达式如下：</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554863669057.png" alt="1554863669057"></p>
+</li>
+<li><p>这就是最基础的数学模型。你可以把神经元当作一个权衡各种依据来做决定的设备。通过调整weights和threshold value，我们可以得到不同的决策模型</p>
+</li>
+<li><p>通过增加神经元个数与层数，我们可以做出很复杂的决策模型</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554863828419.png" alt="1554863828419"></p>
+</li>
+<li><p>上图中第一层为input layer,最后一层为output layer,其余的均为hidden layer,可以想象，随着层数的增加，我们可以拟合出很复杂的模型，因为每一层都是基于上一层所作的更复杂的决定</p>
+</li>
+<li><p>我们可以简化一下perceptrons的描述方式:</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554864066587.png" alt="1554864066587"></p>
+<p>上图中b=-threshold,只是做了一个vectorization和移项，b即bias，描述了神经元激发的难易程度，b越大，越容易激发</p>
+</li>
+<li><p>perceptrons可用来进行逻辑运算</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554864291945.png" alt="1554864291945"></p>
+<p>可自行带入x1,x2计算得知为一个NAND gate.这里要注意一点，通过这个NAND gate我们可以通过增加层数来计算任意逻辑函数</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554864444929.png" alt="1554864444929"></p>
+<p>我们可以用perceptrons来代替上述逻辑结构，把每个与非门转换为一个perceptrons,weights为-2，bias为3</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz4.png" alt="img"></p>
+<p>注意到上图中最下一层的perceptrons得到了来自同一个perceptron的2个输入，weights均为-2，可简化以一个输入</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz5.png" alt="img"></p>
+<p>目前为止我们还把x1,x2当作浮点型变量，实际上更常用的是输入层也换为perceptrons,但这个perceptron没有输入，单纯的输出它的activation值，即圆圈内的值</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz6.png" alt="img"></p>
+</li>
+</ul>
+<h3 id="Sigmoid-neurons"><a href="#Sigmoid-neurons" class="headerlink" title="Sigmoid neurons"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#sigmoid_neurons" target="_blank" rel="noopener">Sigmoid neurons</a></h3><p>为了引入sigmoid neurons,我们先想象一下我们有一个perceptrons neural network，输入为raw pixel data from a scanned, handwritten image of a digit，我们想让神经网络来学习weights和 biases来让神经网络的输出正确分类识别数字。为了看这个学习过程是怎么工作的，我们希望我们对weights(bias)做一个微小的改变，相应的输出也只有微小的改变。下图即为我们想要的效果</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz8.png" alt="img"></p>
+<p>如果能达到这种效果，如果我们的网络误判9为8，我们就可以通过修改weights和bias来使得结果不断地一点点靠近9，不断的重复来获得更好的输出，那么就完成了学习过程</p>
+<p>但实际上，因为perceptron的原因，我们对输入的微小改变可能导致输出flip,即从0变到1.这样的话，如果我们确实通过修改后可以识别9，我们这个网络对于其它所有的图像的表现可能都会有很大的改变，这是很不好的，这个问题可被sigmoid neuron解决</p>
+<p>下面来看什么是sigmoid neuron</p>
+<ul>
+<li><p>与perceptron相比其他的基本一样，差别在于以下几点：</p>
+<ul>
+<li><p>输入输出值可取0~1内任何值比如0.638</p>
+</li>
+<li><p>输入不再是wx+b，而是<img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554865975692.png" alt="1554865975692"></p>
+</li>
+<li><p>其中sigmoid function定义如下</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554866031675.png" alt="1554866031675"></p>
+<p>带入z后可以得到具体输出为</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554866064536.png" alt="1554866064536"></p>
+<p>神经元的结构还是一样</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz9.png" alt="img"></p>
+</li>
+<li><p>实际上，2者很相似。我们假设<br>$$<br>若z≡w⋅x+b&gt;&gt;0,则e^{-z}\approx0，\sigma(z)\approx1<br>$$</p>
+<p>$$<br>若z≡w⋅x+b&lt;&lt;0,则e^{-z}\rightarrow\infty，\sigma(z)\approx0<br>$$</p>
+<p>你会发现这实际上和perceptrons做的事一样</p>
+</li>
+</ul>
+</li>
+<li><p>接下来我们看看sigmoid function的图像</p>
+</li>
+</ul>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554867255547.png" alt="1554867255547"></p>
+<p>可以看作是一个阶跃函数的smooth版本</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554867304979.png" alt="1554867304979"></p>
+<p>事实上perceptron的功能就和阶跃函数一个道理.</p>
+<p>而光滑意味着对于weights和bias小的改变会导致输出的小的改变<br>$$<br>而实际上，微积分告诉我们\Delta output可以被很好的如下估计：<br>$$</p>
+<p>$$<br>Δoutput≈∑\frac{\partial output}{\partial wj}Δwj+\frac{\partial output}{\partial b}Δb<br>$$</p>
+<p>上述的式子告诉我们Δoutput是ΔWj和Δb的线性函数，这使得我们可以很容易地选择小的改变来达成输出上所想要的改变。因为输出是0~1内任意数值，所以我们可以用它来表示一些连续变化的东西，但如果我们想通过输出来进行一个二元判断，我们就也可以选一个值比如0.5来做分界.</p>
+<h3 id="The-architecture-of-neural-networks"><a href="#The-architecture-of-neural-networks" class="headerlink" title="The architecture of neural networks"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#the_architecture_of_neural_networks" target="_blank" rel="noopener">The architecture of neural networks</a></h3><ul>
+<li><p>接下来我们来看一些neural networks的术语</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz11.png" alt="img"></p>
+<ul>
+<li>有一点要注意，出于一些历史原因，上图类似的多层网络有时也被叫做<em>multilayer perceptrons</em> or <em>MLPs</em> ，尽管它并不是由perceptron构成，这点知道即可</li>
+<li>有关输入与输出层的设计很直接，依据具体问题来判断。而对于hidden layer的设计，就很有艺术和技巧了，我们后面会谈到</li>
+<li>我们目前为止谈到的网络都是一层的输出用作下一层的输入，这被称为<em>feedforward</em> neural networks.即网络中没有loops.</li>
+</ul>
+</li>
+</ul>
+<h3 id="A-simple-network-to-classify-handwritten-digits"><a href="#A-simple-network-to-classify-handwritten-digits" class="headerlink" title="A simple network to classify handwritten digits"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#a_simple_network_to_classify_handwritten_digits" target="_blank" rel="noopener">A simple network to classify handwritten digits</a></h3><p>让我们回到我们一开始的目标，我们可以把识别手写数字分为2布。第一步是找到一种可以把图片中的数字分割开的方法，即把下图中的数字拆开</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554870990338.png" alt="1554870990338"></p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554870998809.png" alt="1554870998809"></p>
+<p>一旦拆开之后，我们的任务就变成了识别单个数字，我们的目标就是写一个程序来解决这个问题，因为事实上第一个任务并不是很难，可以参考相关资料，比如用小的filter取判断，这里不涉及了。而为了解决第二个任务，我们用如下3层神经网络去做</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz12.png" alt="img"></p>
+<p>其中，输入层的神经元用于处理输入的像素点(our training data for the network will consist of many 28 by 28 pixel images of scanned handwritten digits, and so the input layer contains 784=28×28 neurons.)而且我们输入的像素点的灰度值，0表示纯白，1表示纯黑。</p>
+<p>隐藏层我们用了n=15个neurons,这里只是举个例子，我们也可以试验其他的n,最后是输出层。输出层有10个neuron,If the first neuron fires, i.e., has an output ≈1, then that will indicate that the network thinks the digit is a 0.其余的以此类推。</p>
+<p>可能有人会想输出用4位2进制数表示不也行吗？但这样很难如10位一样有具体的与数字的组成部分的对应关系，这里我不细讲了</p>
+<h3 id="Learning-with-gradient-descent"><a href="#Learning-with-gradient-descent" class="headerlink" title="Learning with gradient descent"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#learning_with_gradient_descent" target="_blank" rel="noopener">Learning with gradient descent</a></h3><p>接下来讲讲我们用来优化weights和bias的算法，即梯度下降。为了方便，我们用x来表示输入，它是一个28×28=783维的vector,相应的我们想要的输出(即正确的数字)表示为y=y(x)，y为一个10维vector。</p>
+<ul>
+<li><p>首先我们定义一个cost function用于表征数字识别的好坏<br>$$<br>C(w,b)≡\frac{1 }{2n}\sum_{x}^{}\left |y(x)−a\right |^2<br>$$<br>上式中，w为weights,b为biases,n为训练样本数，a为根据网络计算出的预测数字，为一个10维vector，注意这个求和是针对所有训练输入样本的。如果C(w,b)≈0，那么我们的算法就做的很好，那么如何做到呢，通过梯度下降</p>
+</li>
+<li><p>具体还是用一个我们熟悉的例子，要让一个小球在山谷中尽快下落并达到全局最低，我们要做的就是计算出那一点的梯度，回顾一下数学中的梯度定义，它表征了最快增长的方向，我们只需计算出梯度，那么其相反方向即为最快下降方向，我们就是通过这个来进行更新w和b,公式推导很简单，我就省略了:<br>$$<br>wk→w′k=wk−\eta \frac{\partial C}{\partial wk}<br>$$</p>
+</li>
+</ul>
+<p>$$<br>bl→b′l=bl−\eta \frac{\partial C}{\partial bl}<br>$$</p>
+<p>​    通过不断调用上述方法就可以不断的优化，最终找到一个cost function的全局最小</p>
+<ul>
+<li><p>我们这里提一下梯度下降的一个问题，因为求C时我们是对所有训练样本求和，如果x非常大，那么光进行一步更新就要花大量的时间，我们很难较快的看到优化效果。所以，我们有了随机梯度下降法，可用来加速学习，我们随机选择输入样本中的一部分进行梯度下降，使得</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554873916957.png" alt="1554873916957"></p>
+<p>那么相应的有</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554873947222.png" alt="1554873947222"></p>
+<p>证明我们可以这么做，之后应用到我们的梯度下降上</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554874037352.png" alt="1554874037352"></p>
+<p>这样我们就每次取m个样本训练，知道耗尽训练集，这相当于完成了一轮训练，之后我们再不断一轮轮重复</p>
+</li>
+<li><p>还有一点，我们虽然是以二维为例子来研究，但这是通用的，可以拓展到高维</p>
+</li>
+</ul>
+<h3 id="Implementing-our-network-to-classify-digits"><a href="#Implementing-our-network-to-classify-digits" class="headerlink" title="Implementing our network to classify digits"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#implementing_our_network_to_classify_digits" target="_blank" rel="noopener">Implementing our network to classify digits</a></h3><p>现在开始看我们的代码，注意我们预先把60000个训练集分为2个，1个有50000个样本，叫做training set,另一组10000个作为交叉验证集，下面看代码，我们定义了一个Network类用于描述我们的神经网络</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span></span><br><span class="line">network.py</span><br><span class="line">~~~~~~~~~~</span><br><span class="line"></span><br><span class="line">A module to implement the stochastic gradient descent learning</span><br><span class="line">algorithm <span class="keyword">for</span> a feedforward neural network.  Gradients are calculated</span><br><span class="line">using backpropagation.  Note that I have focused on making the code</span><br><span class="line">simple, easily readable, <span class="keyword">and</span> easily modifiable.  It <span class="keyword">is</span> <span class="keyword">not</span> optimized,</span><br><span class="line"><span class="keyword">and</span> omits many desirable features.</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### Libraries</span></span><br><span class="line"><span class="string"># Standard library</span></span><br><span class="line"><span class="string">import random</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Third-party libraries</span></span><br><span class="line"><span class="string">import numpy as np</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class Network(object):</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, sizes):</span></span><br><span class="line"><span class="string">        """</span>The list ``sizes`` contains the number of neurons <span class="keyword">in</span> the</span><br><span class="line">        respective layers of the network.  For example, <span class="keyword">if</span> the list</span><br><span class="line">        was [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>] then it would be a three-layer network, <span class="keyword">with</span> the</span><br><span class="line">        first layer containing <span class="number">2</span> neurons, the second layer <span class="number">3</span> neurons,</span><br><span class="line">        <span class="keyword">and</span> the third layer <span class="number">1</span> neuron.  The biases <span class="keyword">and</span> weights <span class="keyword">for</span> the</span><br><span class="line">        network are initialized randomly, using a Gaussian</span><br><span class="line">        distribution <span class="keyword">with</span> mean <span class="number">0</span>, <span class="keyword">and</span> variance <span class="number">1.</span>  Note that the first</span><br><span class="line">        layer <span class="keyword">is</span> assumed to be an input layer, <span class="keyword">and</span> by convention we</span><br><span class="line">        won<span class="string">'t set any biases for those neurons, since biases are only</span></span><br><span class="line"><span class="string">        ever used in computing the outputs from later layers."""</span></span><br><span class="line"><span class="string">        self.num_layers = len(sizes)</span></span><br><span class="line"><span class="string">        self.sizes = sizes</span></span><br><span class="line"><span class="string">        self.biases = [np.random.randn(y, 1) for y in sizes[1:]]</span></span><br><span class="line"><span class="string">        self.weights = [np.random.randn(y, x)</span></span><br><span class="line"><span class="string">                        for x, y in zip(sizes[:-1], sizes[1:])]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def feedforward(self, a):</span></span><br><span class="line"><span class="string">        """Return the output of the network if ``a`` is input."""</span></span><br><span class="line"><span class="string">        for b, w in zip(self.biases, self.weights):</span></span><br><span class="line"><span class="string">            a = sigmoid(np.dot(w, a)+b)</span></span><br><span class="line"><span class="string">        return a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def SGD(self, training_data, epochs, mini_batch_size, eta,</span></span><br><span class="line"><span class="string">            test_data=None):</span></span><br><span class="line"><span class="string">        """Train the neural network using mini-batch stochastic</span></span><br><span class="line"><span class="string">        gradient descent.  The ``training_data`` is a list of tuples</span></span><br><span class="line"><span class="string">        ``(x, y)`` representing the training inputs and the desired</span></span><br><span class="line"><span class="string">        outputs.  The other non-optional parameters are</span></span><br><span class="line"><span class="string">        self-explanatory.  If ``test_data`` is provided then the</span></span><br><span class="line"><span class="string">        network will be evaluated against the test data after each</span></span><br><span class="line"><span class="string">        epoch, and partial progress printed out.  This is useful for</span></span><br><span class="line"><span class="string">        tracking progress, but slows things down substantially."""</span></span><br><span class="line"><span class="string">        if test_data: n_test = len(test_data)</span></span><br><span class="line"><span class="string">        n = len(training_data)</span></span><br><span class="line"><span class="string">        for j in xrange(epochs):</span></span><br><span class="line"><span class="string">            random.shuffle(training_data)</span></span><br><span class="line"><span class="string">            mini_batches = [</span></span><br><span class="line"><span class="string">                training_data[k:k+mini_batch_size]</span></span><br><span class="line"><span class="string">                for k in xrange(0, n, mini_batch_size)]</span></span><br><span class="line"><span class="string">            for mini_batch in mini_batches:</span></span><br><span class="line"><span class="string">                self.update_mini_batch(mini_batch, eta)</span></span><br><span class="line"><span class="string">            if test_data:</span></span><br><span class="line"><span class="string">                print "Epoch &#123;0&#125;: &#123;1&#125; / &#123;2&#125;".format(</span></span><br><span class="line"><span class="string">                    j, self.evaluate(test_data), n_test)</span></span><br><span class="line"><span class="string">            else:</span></span><br><span class="line"><span class="string">                print "Epoch &#123;0&#125; complete".format(j)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def update_mini_batch(self, mini_batch, eta):</span></span><br><span class="line"><span class="string">        """Update the network'</span>s weights <span class="keyword">and</span> biases by applying</span><br><span class="line">        gradient descent using backpropagation to a single mini batch.</span><br><span class="line">        The ``mini_batch`` <span class="keyword">is</span> a list of tuples ``(x, y)``, <span class="keyword">and</span> ``eta``</span><br><span class="line">        <span class="keyword">is</span> the learning rate.<span class="string">"""</span></span><br><span class="line"><span class="string">        nabla_b = [np.zeros(b.shape) for b in self.biases]</span></span><br><span class="line"><span class="string">        nabla_w = [np.zeros(w.shape) for w in self.weights]</span></span><br><span class="line"><span class="string">        for x, y in mini_batch:</span></span><br><span class="line"><span class="string">            delta_nabla_b, delta_nabla_w = self.backprop(x, y)</span></span><br><span class="line"><span class="string">            nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]</span></span><br><span class="line"><span class="string">            nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]</span></span><br><span class="line"><span class="string">        self.weights = [w-(eta/len(mini_batch))*nw</span></span><br><span class="line"><span class="string">                        for w, nw in zip(self.weights, nabla_w)]</span></span><br><span class="line"><span class="string">        self.biases = [b-(eta/len(mini_batch))*nb</span></span><br><span class="line"><span class="string">                       for b, nb in zip(self.biases, nabla_b)]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def backprop(self, x, y):</span></span><br><span class="line"><span class="string">        """</span>Return a tuple ``(nabla_b, nabla_w)`` representing the</span><br><span class="line">        gradient <span class="keyword">for</span> the cost function C_x.  ``nabla_b`` <span class="keyword">and</span></span><br><span class="line">        ``nabla_w`` are layer-by-layer lists of numpy arrays, similar</span><br><span class="line">        to ``self.biases`` <span class="keyword">and</span> ``self.weights``.<span class="string">"""</span></span><br><span class="line"><span class="string">        nabla_b = [np.zeros(b.shape) for b in self.biases]</span></span><br><span class="line"><span class="string">        nabla_w = [np.zeros(w.shape) for w in self.weights]</span></span><br><span class="line"><span class="string">        # feedforward</span></span><br><span class="line"><span class="string">        activation = x</span></span><br><span class="line"><span class="string">        activations = [x] # list to store all the activations, layer by layer</span></span><br><span class="line"><span class="string">        zs = [] # list to store all the z vectors, layer by layer</span></span><br><span class="line"><span class="string">        for b, w in zip(self.biases, self.weights):</span></span><br><span class="line"><span class="string">            z = np.dot(w, activation)+b</span></span><br><span class="line"><span class="string">            zs.append(z)</span></span><br><span class="line"><span class="string">            activation = sigmoid(z)</span></span><br><span class="line"><span class="string">            activations.append(activation)</span></span><br><span class="line"><span class="string">        # backward pass</span></span><br><span class="line"><span class="string">        delta = self.cost_derivative(activations[-1], y) * \</span></span><br><span class="line"><span class="string">            sigmoid_prime(zs[-1])</span></span><br><span class="line"><span class="string">        nabla_b[-1] = delta</span></span><br><span class="line"><span class="string">        nabla_w[-1] = np.dot(delta, activations[-2].transpose())</span></span><br><span class="line"><span class="string">        # Note that the variable l in the loop below is used a little</span></span><br><span class="line"><span class="string">        # differently to the notation in Chapter 2 of the book.  Here,</span></span><br><span class="line"><span class="string">        # l = 1 means the last layer of neurons, l = 2 is the</span></span><br><span class="line"><span class="string">        # second-last layer, and so on.  It's a renumbering of the</span></span><br><span class="line"><span class="string">        # scheme in the book, used here to take advantage of the fact</span></span><br><span class="line"><span class="string">        # that Python can use negative indices in lists.</span></span><br><span class="line"><span class="string">        for l in xrange(2, self.num_layers):</span></span><br><span class="line"><span class="string">            z = zs[-l]</span></span><br><span class="line"><span class="string">            sp = sigmoid_prime(z)</span></span><br><span class="line"><span class="string">            delta = np.dot(self.weights[-l+1].transpose(), delta) * sp</span></span><br><span class="line"><span class="string">            nabla_b[-l] = delta</span></span><br><span class="line"><span class="string">            nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())</span></span><br><span class="line"><span class="string">        return (nabla_b, nabla_w)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def evaluate(self, test_data):</span></span><br><span class="line"><span class="string">        """</span>Return the number of test inputs <span class="keyword">for</span> which the neural</span><br><span class="line">        network outputs the correct result. Note that the neural</span><br><span class="line">        network<span class="string">'s output is assumed to be the index of whichever</span></span><br><span class="line"><span class="string">        neuron in the final layer has the highest activation."""</span></span><br><span class="line"><span class="string">        test_results = [(np.argmax(self.feedforward(x)), y)</span></span><br><span class="line"><span class="string">                        for (x, y) in test_data]</span></span><br><span class="line"><span class="string">        return sum(int(x == y) for (x, y) in test_results)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def cost_derivative(self, output_activations, y):</span></span><br><span class="line"><span class="string">        """Return the vector of partial derivatives \partial C_x /</span></span><br><span class="line"><span class="string">        \partial a for the output activations."""</span></span><br><span class="line"><span class="string">        return (output_activations-y)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### Miscellaneous functions</span></span><br><span class="line"><span class="string">def sigmoid(z):</span></span><br><span class="line"><span class="string">    """The sigmoid function."""</span></span><br><span class="line"><span class="string">    return 1.0/(1.0+np.exp(-z))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def sigmoid_prime(z):</span></span><br><span class="line"><span class="string">    """Derivative of the sigmoid function."""</span></span><br><span class="line"><span class="string">    return sigmoid(z)*(1-sigmoid(z))</span></span><br></pre></td></tr></table></figure>
+<p>具体训练时，我们按照以下步骤：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mnist_loader</span><br><span class="line">training_data, validation_data, test_data = \</span><br><span class="line"><span class="meta">... </span>mnist_loader.load_data_wrapper()</span><br><span class="line"><span class="keyword">import</span> network</span><br><span class="line">net = network.Network([<span class="number">784</span>, <span class="number">30</span>, <span class="number">10</span>]) //这个表示结构为<span class="number">3</span>层，神经元个数为<span class="number">784</span>，<span class="number">30</span>，<span class="number">10</span></span><br><span class="line">net.SGD(training_data, <span class="number">30</span>, <span class="number">10</span>, <span class="number">3.0</span>, test_data=test_data)//调用随机梯度下降训练</span><br><span class="line"></span><br><span class="line">//输出样例如下</span><br><span class="line">Epoch <span class="number">0</span>: <span class="number">9129</span> / <span class="number">10000</span></span><br><span class="line">Epoch <span class="number">1</span>: <span class="number">9295</span> / <span class="number">10000</span></span><br><span class="line">Epoch <span class="number">2</span>: <span class="number">9348</span> / <span class="number">10000</span></span><br><span class="line">...</span><br><span class="line">Epoch <span class="number">27</span>: <span class="number">9528</span> / <span class="number">10000</span></span><br><span class="line">Epoch <span class="number">28</span>: <span class="number">9542</span> / <span class="number">10000</span></span><br><span class="line">Epoch <span class="number">29</span>: <span class="number">9534</span> / <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p>我们省略了一个load数据的模块如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">mnist_loader</span></span><br><span class="line"><span class="string">~~~~~~~~~~~~</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">A library to load the MNIST image data.  For details of the data</span></span><br><span class="line"><span class="string">structures that are returned, see the doc strings for ``load_data``</span></span><br><span class="line"><span class="string">and ``load_data_wrapper``.  In practice, ``load_data_wrapper`` is the</span></span><br><span class="line"><span class="string">function usually called by our neural network code.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Libraries</span></span><br><span class="line"><span class="comment"># Standard library</span></span><br><span class="line"><span class="keyword">import</span> cPickle</span><br><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"></span><br><span class="line"><span class="comment"># Third-party libraries</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""Return the MNIST data as a tuple containing the training data,</span></span><br><span class="line"><span class="string">    the validation data, and the test data.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The ``training_data`` is returned as a tuple with two entries.</span></span><br><span class="line"><span class="string">    The first entry contains the actual training images.  This is a</span></span><br><span class="line"><span class="string">    numpy ndarray with 50,000 entries.  Each entry is, in turn, a</span></span><br><span class="line"><span class="string">    numpy ndarray with 784 values, representing the 28 * 28 = 784</span></span><br><span class="line"><span class="string">    pixels in a single MNIST image.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The second entry in the ``training_data`` tuple is a numpy ndarray</span></span><br><span class="line"><span class="string">    containing 50,000 entries.  Those entries are just the digit</span></span><br><span class="line"><span class="string">    values (0...9) for the corresponding images contained in the first</span></span><br><span class="line"><span class="string">    entry of the tuple.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The ``validation_data`` and ``test_data`` are similar, except</span></span><br><span class="line"><span class="string">    each contains only 10,000 images.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    This is a nice data format, but for use in neural networks it's</span></span><br><span class="line"><span class="string">    helpful to modify the format of the ``training_data`` a little.</span></span><br><span class="line"><span class="string">    That's done in the wrapper function ``load_data_wrapper()``, see</span></span><br><span class="line"><span class="string">    below.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    f = gzip.open(<span class="string">'../data/mnist.pkl.gz'</span>, <span class="string">'rb'</span>)</span><br><span class="line">    training_data, validation_data, test_data = cPickle.load(f)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="keyword">return</span> (training_data, validation_data, test_data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data_wrapper</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""Return a tuple containing ``(training_data, validation_data,</span></span><br><span class="line"><span class="string">    test_data)``. Based on ``load_data``, but the format is more</span></span><br><span class="line"><span class="string">    convenient for use in our implementation of neural networks.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    In particular, ``training_data`` is a list containing 50,000</span></span><br><span class="line"><span class="string">    2-tuples ``(x, y)``.  ``x`` is a 784-dimensional numpy.ndarray</span></span><br><span class="line"><span class="string">    containing the input image.  ``y`` is a 10-dimensional</span></span><br><span class="line"><span class="string">    numpy.ndarray representing the unit vector corresponding to the</span></span><br><span class="line"><span class="string">    correct digit for ``x``.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ``validation_data`` and ``test_data`` are lists containing 10,000</span></span><br><span class="line"><span class="string">    2-tuples ``(x, y)``.  In each case, ``x`` is a 784-dimensional</span></span><br><span class="line"><span class="string">    numpy.ndarry containing the input image, and ``y`` is the</span></span><br><span class="line"><span class="string">    corresponding classification, i.e., the digit values (integers)</span></span><br><span class="line"><span class="string">    corresponding to ``x``.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Obviously, this means we're using slightly different formats for</span></span><br><span class="line"><span class="string">    the training data and the validation / test data.  These formats</span></span><br><span class="line"><span class="string">    turn out to be the most convenient for use in our neural network</span></span><br><span class="line"><span class="string">    code."""</span></span><br><span class="line">    tr_d, va_d, te_d = load_data()</span><br><span class="line">    training_inputs = [np.reshape(x, (<span class="number">784</span>, <span class="number">1</span>)) <span class="keyword">for</span> x <span class="keyword">in</span> tr_d[<span class="number">0</span>]]</span><br><span class="line">    training_results = [vectorized_result(y) <span class="keyword">for</span> y <span class="keyword">in</span> tr_d[<span class="number">1</span>]]</span><br><span class="line">    training_data = zip(training_inputs, training_results)</span><br><span class="line">    validation_inputs = [np.reshape(x, (<span class="number">784</span>, <span class="number">1</span>)) <span class="keyword">for</span> x <span class="keyword">in</span> va_d[<span class="number">0</span>]]</span><br><span class="line">    validation_data = zip(validation_inputs, va_d[<span class="number">1</span>])</span><br><span class="line">    test_inputs = [np.reshape(x, (<span class="number">784</span>, <span class="number">1</span>)) <span class="keyword">for</span> x <span class="keyword">in</span> te_d[<span class="number">0</span>]]</span><br><span class="line">    test_data = zip(test_inputs, te_d[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> (training_data, validation_data, test_data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">vectorized_result</span><span class="params">(j)</span>:</span></span><br><span class="line">    <span class="string">"""Return a 10-dimensional unit vector with a 1.0 in the jth</span></span><br><span class="line"><span class="string">    position and zeroes elsewhere.  This is used to convert a digit</span></span><br><span class="line"><span class="string">    (0...9) into a corresponding desired output from the neural</span></span><br><span class="line"><span class="string">    network."""</span></span><br><span class="line">    e = np.zeros((<span class="number">10</span>, <span class="number">1</span>))</span><br><span class="line">    e[j] = <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">return</span> e</span><br></pre></td></tr></table></figure>
+<h3 id="Toward-deep-learning"><a href="#Toward-deep-learning" class="headerlink" title="Toward deep learning"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#toward_deep_learning" target="_blank" rel="noopener">Toward deep learning</a></h3><p>这一段原文说的很好，我就附上原文了，大意是，通过不断分解复杂的问题比如面部识别，为如何识别眼睛，鼻子，嘴这种子任务，再把子任务不断分解下去，直到每个子任务一个neural即可解决，那么我们就可以用神经网络解决非常复杂的问题。这也被叫做deep neural network,其中hidden layers可多达几十层</p>
+<p>While our neural network gives impressive performance, that performance is somewhat mysterious. The weights and biases in the network were discovered automatically. And that means we don’t immediately have an explanation of how the network does what it does. Can we find some way to understand the principles by which our network is classifying handwritten digits? And, given such principles, can we do better?</p>
+<p>To put these questions more starkly, suppose that a few decades hence neural networks lead to artificial intelligence (AI). Will we understand how such intelligent networks work? Perhaps the networks will be opaque to us, with weights and biases we don’t understand, because they’ve been learned automatically. In the early days of AI research people hoped that the effort to build an AI would also help us understand the principles behind intelligence and, maybe, the functioning of the human brain. But perhaps the outcome will be that we end up understanding neither the brain nor how artificial intelligence works!</p>
+<p>To address these questions, let’s think back to the interpretation of artificial neurons that I gave at the start of the chapter, as a means of weighing evidence. Suppose we want to determine whether an image shows a human face or not:</p>
+<p><img src="/2019/04/15/CHAPTER 1/Users\win10\AppData\Roaming\Typora\typora-user-images\1554875618347.png" alt="1554875618347"></p>
+<p>We could attack this problem the same way we attacked handwriting recognition - by using the pixels in the image as input to a neural network, with the output from the network a single neuron indicating either “Yes, it’s a face” or “No, it’s not a face”.</p>
+<p>Let’s suppose we do this, but that we’re not using a learning algorithm. Instead, we’re going to try to design a network by hand, choosing appropriate weights and biases. How might we go about it? Forgetting neural networks entirely for the moment, a heuristic we could use is to decompose the problem into sub-problems: does the image have an eye in the top left? Does it have an eye in the top right? Does it have a nose in the middle? Does it have a mouth in the bottom middle? Is there hair on top? And so on.</p>
+<p>If the answers to several of these questions are “yes”, or even just “probably yes”, then we’d conclude that the image is likely to be a face. Conversely, if the answers to most of the questions are “no”, then the image probably isn’t a face.</p>
+<p>Of course, this is just a rough heuristic, and it suffers from many deficiencies. Maybe the person is bald, so they have no hair. Maybe we can only see part of the face, or the face is at an angle, so some of the facial features are obscured. Still, the heuristic suggests that if we can solve the sub-problems using neural networks, then perhaps we can build a neural network for face-detection, by combining the networks for the sub-problems. Here’s a possible architecture, with rectangles denoting the sub-networks. Note that this isn’t intended as a realistic approach to solving the face-detection problem; rather, it’s to help us build intuition about how networks function. Here’s the architecture:</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz14.png" alt="img"></p>
+<p>It’s also plausible that the sub-networks can be decomposed. Suppose we’re considering the question: “Is there an eye in the top left?” This can be decomposed into questions such as: “Is there an eyebrow?”; “Are there eyelashes?”; “Is there an iris?”; and so on. Of course, these questions should really include positional information, as well - “Is the eyebrow in the top left, and above the iris?”, that kind of thing - but let’s keep it simple. The network to answer the question “Is there an eye in the top left?” can now be decomposed:</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz15.png" alt="img"></p>
+<p>Those questions too can be broken down, further and further through multiple layers. Ultimately, we’ll be working with sub-networks that answer questions so simple they can easily be answered at the level of single pixels. Those questions might, for example, be about the presence or absence of very simple shapes at particular points in the image. Such questions can be answered by single neurons connected to the raw pixels in the image.</p>
+<p>The end result is a network which breaks down a very complicated question - does this image show a face or not - into very simple questions answerable at the level of single pixels. It does this through a series of many layers, with early layers answering very simple and specific questions about the input image, and later layers building up a hierarchy of ever more complex and abstract concepts. Networks with this kind of many-layer structure - two or more hidden layers - are called <em>deep neural networks</em>.</p>
+<p>Of course, I haven’t said how to do this recursive decomposition into sub-networks. It certainly isn’t practical to hand-design the weights and biases in the network. Instead, we’d like to use learning algorithms so that the network can automatically learn the weights and biases - and thus, the hierarchy of concepts - from training data. Researchers in the 1980s and 1990s tried using stochastic gradient descent and backpropagation to train deep networks. Unfortunately, except for a few special architectures, they didn’t have much luck. The networks would learn, but very slowly, and in practice often too slowly to be useful.</p>
+<p>Since 2006, a set of techniques has been developed that enable learning in deep neural nets. These deep learning techniques are based on stochastic gradient descent and backpropagation, but also introduce new ideas. These techniques have enabled much deeper (and larger) networks to be trained - people now routinely train networks with 5 to 10 hidden layers. And, it turns out that these perform far better on many problems than shallow neural networks, i.e., networks with just a single hidden layer. The reason, of course, is the ability of deep nets to build up a complex hierarchy of concepts. It’s a bit like the way conventional programming languages use modular design and ideas about abstraction to enable the creation of complex computer programs. Comparing a deep network to a shallow network is a bit like comparing a programming language with the ability to make function calls to a stripped down language with no ability to make such calls. Abstraction takes a different form in neural networks than it does in conventional programming, but it’s just as important.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/neural-networks/" rel="tag"># neural networks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/06/matlab2/" rel="next" title="初识matlab(二)---coursera基础系列">
+                <i class="fa fa-chevron-left"></i> 初识matlab(二)---coursera基础系列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/18/CHAPTER 2/" rel="prev" title="Neural network and deep learning chapter 2">
+                Neural network and deep learning chapter 2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">A dream catcher</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sherwinww.github.io" title="https://sherwinww.github.io" rel="noopener" target="_blank">zuzu</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CHAPTER-1"><span class="nav-number">1.</span> <span class="nav-text">CHAPTER 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-neural-nets-to-recognize-handwritten-digits"><span class="nav-number">2.</span> <span class="nav-text">Using neural nets to recognize handwritten digits</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goals"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Goals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">Why</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让我们赶快开始吧"><span class="nav-number">2.0.1.</span> <span class="nav-text">让我们赶快开始吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Perceptrons"><span class="nav-number">2.0.2.</span> <span class="nav-text">Perceptrons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sigmoid-neurons"><span class="nav-number">2.0.3.</span> <span class="nav-text">Sigmoid neurons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-architecture-of-neural-networks"><span class="nav-number">2.0.4.</span> <span class="nav-text">The architecture of neural networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-simple-network-to-classify-handwritten-digits"><span class="nav-number">2.0.5.</span> <span class="nav-text">A simple network to classify handwritten digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-with-gradient-descent"><span class="nav-number">2.0.6.</span> <span class="nav-text">Learning with gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementing-our-network-to-classify-digits"><span class="nav-number">2.0.7.</span> <span class="nav-text">Implementing our network to classify digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Toward-deep-learning"><span class="nav-number">2.0.8.</span> <span class="nav-text">Toward deep learning</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
