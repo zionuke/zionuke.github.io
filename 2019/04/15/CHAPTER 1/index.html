@@ -134,7 +134,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER%201/10.png">
 <meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz14.png">
 <meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz15.png">
-<meta property="og:updated_time" content="2019-04-25T14:45:24.993Z">
+<meta property="og:updated_time" content="2019-04-25T15:27:20.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural network and deep learning chapter 1">
 <meta name="twitter:image" content="http://neuralnetworksanddeeplearning.com/images/tikz0.png">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-25 22:45:24" itemprop="dateModified" datetime="2019-04-25T22:45:24+08:00">2019-04-25</time>
+                <time title="修改时间：2019-04-25 23:27:20" itemprop="dateModified" datetime="2019-04-25T23:27:20+08:00">2019-04-25</time>
               
             
           </span>
@@ -519,9 +519,9 @@
 <p>上图中b=-threshold,只是做了一个vectorization和移项，b即bias，描述了神经元激发的难易程度，b越大，越容易激发</p>
 </li>
 <li><p>perceptrons可用来进行逻辑运算</p>
-<p><img src="/2019/04/15/CHAPTER 1/3.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/3.png" alt="3"></p>
 <p>可自行带入x1,x2计算得知为一个NAND gate.这里要注意一点，通过这个NAND gate我们可以通过增加层数来计算任意逻辑函数</p>
-<p><img src="/2019/04/15/CHAPTER 1/4.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/4.png" alt="4"></p>
 <p>我们可以用perceptrons来代替上述逻辑结构，把每个与非门转换为一个perceptrons,weights为-2，bias为3</p>
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz4.png" alt="img"></p>
 <p>注意到上图中最下一层的perceptrons得到了来自同一个perceptron的2个输入，weights均为-2，可简化以一个输入</p>
@@ -540,7 +540,7 @@
 <ul>
 <li><p>输入输出值可取0~1内任何值比如0.638</p>
 </li>
-<li><p>输入不再是wx+b，而是<img src="/2019/04/15/CHAPTER 1/5.png" alt="2"></p>
+<li><p>输入不再是wx+b，而是<img src="/2019/04/15/CHAPTER 1/5.png" alt="5"></p>
 </li>
 <li><p>其中sigmoid function定义如下</p>
 <p>$$<br>\sigma(z) \equiv \frac{1}{1+e^{-z}}<br>$$<br>带入z后可以得到具体输出为</p>
@@ -556,9 +556,9 @@
 <li><p>接下来我们看看sigmoid function的图像</p>
 </li>
 </ul>
-<p><img src="/2019/04/15/CHAPTER 1/6.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/6.png" alt="6"></p>
 <p>可以看作是一个阶跃函数的smooth版本</p>
-<p><img src="/2019/04/15/CHAPTER 1/7.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/7.png" alt="7"></p>
 <p>事实上perceptron的功能就和阶跃函数一个道理.</p>
 <p>而光滑意味着对于weights和bias小的改变会导致输出的小的改变<br>$$<br>而实际上，微积分告诉我们\Delta output可以被很好的如下估计：<br>$$</p>
 <p>$$<br>Δoutput≈∑\frac{\partial output}{\partial wj}Δwj+\frac{\partial output}{\partial b}Δb<br>$$</p>
@@ -574,8 +574,8 @@
 </li>
 </ul>
 <h3 id="A-simple-network-to-classify-handwritten-digits"><a href="#A-simple-network-to-classify-handwritten-digits" class="headerlink" title="A simple network to classify handwritten digits"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#a_simple_network_to_classify_handwritten_digits" target="_blank" rel="noopener">A simple network to classify handwritten digits</a></h3><p>让我们回到我们一开始的目标，我们可以把识别手写数字分为2布。第一步是找到一种可以把图片中的数字分割开的方法，即把下图中的数字拆开</p>
-<p><img src="/2019/04/15/CHAPTER 1/8.png" alt="2"></p>
-<p><img src="/2019/04/15/CHAPTER 1/9.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/8.png" alt="8"></p>
+<p><img src="/2019/04/15/CHAPTER 1/9.png" alt="9"></p>
 <p>一旦拆开之后，我们的任务就变成了识别单个数字，我们的目标就是写一个程序来解决这个问题，因为事实上第一个任务并不是很难，可以参考相关资料，比如用小的filter取判断，这里不涉及了。而为了解决第二个任务，我们用如下3层神经网络去做</p>
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz12.png" alt="img"></p>
 <p>其中，输入层的神经元用于处理输入的像素点(our training data for the network will consist of many 28 by 28 pixel images of scanned handwritten digits, and so the input layer contains 784=28×28 neurons.)而且我们输入的像素点的灰度值，0表示纯白，1表示纯黑。</p>
@@ -611,7 +611,7 @@
 <p>While our neural network gives impressive performance, that performance is somewhat mysterious. The weights and biases in the network were discovered automatically. And that means we don’t immediately have an explanation of how the network does what it does. Can we find some way to understand the principles by which our network is classifying handwritten digits? And, given such principles, can we do better?</p>
 <p>To put these questions more starkly, suppose that a few decades hence neural networks lead to artificial intelligence (AI). Will we understand how such intelligent networks work? Perhaps the networks will be opaque to us, with weights and biases we don’t understand, because they’ve been learned automatically. In the early days of AI research people hoped that the effort to build an AI would also help us understand the principles behind intelligence and, maybe, the functioning of the human brain. But perhaps the outcome will be that we end up understanding neither the brain nor how artificial intelligence works!</p>
 <p>To address these questions, let’s think back to the interpretation of artificial neurons that I gave at the start of the chapter, as a means of weighing evidence. Suppose we want to determine whether an image shows a human face or not:</p>
-<p><img src="/2019/04/15/CHAPTER 1/10.png" alt="2"></p>
+<p><img src="/2019/04/15/CHAPTER 1/10.png" alt="10"></p>
 <p>We could attack this problem the same way we attacked handwriting recognition - by using the pixels in the image as input to a neural network, with the output from the network a single neuron indicating either “Yes, it’s a face” or “No, it’s not a face”.</p>
 <p>Let’s suppose we do this, but that we’re not using a learning algorithm. Instead, we’re going to try to design a network by hand, choosing appropriate weights and biases. How might we go about it? Forgetting neural networks entirely for the moment, a heuristic we could use is to decompose the problem into sub-problems: does the image have an eye in the top left? Does it have an eye in the top right? Does it have a nose in the middle? Does it have a mouth in the bottom middle? Is there hair on top? And so on.</p>
 <p>If the answers to several of these questions are “yes”, or even just “probably yes”, then we’d conclude that the image is likely to be a face. Conversely, if the answers to most of the questions are “no”, then the image probably isn’t a face.</p>
