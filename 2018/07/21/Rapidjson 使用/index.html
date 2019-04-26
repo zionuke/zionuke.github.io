@@ -108,22 +108,22 @@
 
 
 
-  <meta name="keywords" content="C++">
+  <meta name="keywords" content="json">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++ primer plus学习（六）">
-<meta property="og:url" content="http://yoursite.com/2018/07/27/c++ primer plus学习(六)/index.html">
+<meta property="og:title" content="Rapidjson 使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/Rapidjson 使用/index.html">
 <meta property="og:site_name" content="AI Explorer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T15:28:26.447Z">
+<meta property="og:updated_time" content="2019-04-26T15:04:48.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++ primer plus学习（六）">
+<meta name="twitter:title" content="Rapidjson 使用">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/27/c++ primer plus学习(六)/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/21/Rapidjson 使用/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>c++ primer plus学习（六） | AI Explorer</title>
+  <title>Rapidjson 使用 | AI Explorer</title>
   
 
 
@@ -337,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/c++ primer plus学习(六)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/Rapidjson 使用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShreenLiu">
@@ -354,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++ primer plus学习（六）
+          <h1 class="post-title" itemprop="name headline">Rapidjson 使用
               
             
           </h1>
@@ -379,7 +379,7 @@
                 
               
 
-              <time title="创建时间：2018-07-27 21:17:55" itemprop="dateCreated datePublished" datetime="2018-07-27T21:17:55+08:00">2018-07-27</time>
+              <time title="创建时间：2018-07-21 16:16:14" itemprop="dateCreated datePublished" datetime="2018-07-21T16:16:14+08:00">2018-07-21</time>
             
 
             
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-05 23:28:26" itemprop="dateModified" datetime="2018-12-05T23:28:26+08:00">2018-12-05</time>
+                <time title="修改时间：2019-04-26 23:04:48" itemprop="dateModified" datetime="2019-04-26T23:04:48+08:00">2019-04-26</time>
               
             
           </span>
@@ -413,7 +413,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a></span>
 
                 
                 
@@ -428,8 +428,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/27/c++ primer plus学习(六)/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/27/c++ primer plus学习(六)/" itemprop="commentCount"></span>
+                <a href="/2018/07/21/Rapidjson 使用/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/21/Rapidjson 使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,7 +437,7 @@
 
           
           
-             <span id="/2018/07/27/c++ primer plus学习(六)/" class="leancloud_visitors" data-flag-title="c++ primer plus学习（六）">
+             <span id="/2018/07/21/Rapidjson 使用/" class="leancloud_visitors" data-flag-title="Rapidjson 使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -470,111 +470,24 @@
       
         <blockquote class="blockquote-center"></blockquote>
 <a id="more"></a>
-<h2 id="类继承"><a href="#类继承" class="headerlink" title="类继承"></a>类继承</h2><ul>
-<li><p>派生类所具有特征:</p>
-<ul>
-<li>派生类对象存储了基类的数据成员(继承了基类的实现)</li>
-<li>派生类对象可以使用基类的方法(继承了基类的接口)</li>
-</ul>
-</li>
-<li><p>派生类需添加:</p>
-<ul>
-<li>派生类需要自己的构造函数</li>
-<li>派生类可以根据需要添加额外的数据成员和成员函数</li>
-</ul>
-</li>
-<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">已知有一个基类TableTennisPlayer</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TableTennisPlayer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="built_in">string</span> firstname;</span><br><span class="line">    	<span class="built_in">string</span> lastname;</span><br><span class="line">    	<span class="keyword">bool</span> hasTable;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	TableTennisPlayer (<span class="keyword">const</span> <span class="built_in">string</span> &amp; fn = <span class="string">"none"</span>,</span><br><span class="line">                           <span class="keyword">const</span> <span class="built_in">string</span> &amp; ln = <span class="string">"none"</span>,<span class="keyword">bool</span> ht = <span class="literal">false</span>);</span><br><span class="line">    	<span class="function"><span class="keyword">void</span> <span class="title">Name</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">HasTable</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> hasTable&#125;;</span><br><span class="line">    	<span class="function"><span class="keyword">void</span> <span class="title">ResetTable</span><span class="params">(<span class="keyword">bool</span> v)</span></span>&#123;hasTable = v&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">现在有一个子类RatedPlayer</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RatedPlayer</span>:</span> <span class="keyword">public</span> TableTennisPlayer</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">unsigned</span> <span class="keyword">int</span> rating;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		RatedPlayer (<span class="keyword">unsigned</span> <span class="keyword">int</span> r =<span class="number">0</span>, <span class="keyword">const</span> <span class="built_in">string</span> &amp; fn = <span class="string">"none"</span>,</span><br><span class="line">					<span class="keyword">const</span> <span class="built_in">string</span> &amp; ln = <span class="string">"none"</span>, <span class="keyword">bool</span> ht = <span class="literal">false</span>);</span><br><span class="line">		RatedPlayer(<span class="keyword">unsigned</span> <span class="keyword">int</span> r, <span class="keyword">const</span> TableTennisPlayer &amp; tp);</span><br><span class="line">		<span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">Rating</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> rating;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">ResetRating</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> r)</span> </span>&#123;rating = r;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//派生类不能直接访问基类的私有成员，必须通过基类方法访问。具体来说，派生类构造函数必须使用基类构造函数.c++使用成员初始化列表语法来完成这种工作</span></span><br><span class="line">RatedPlayer (<span class="keyword">unsigned</span> <span class="keyword">int</span> r, <span class="keyword">const</span> <span class="built_in">string</span> &amp; fn,</span><br><span class="line">			<span class="keyword">const</span> <span class="built_in">string</span> &amp; ln, <span class="keyword">bool</span> ht):TableTennisPlayer(fn,ln,ht)</span><br><span class="line">&#123;</span><br><span class="line">    rating = r;</span><br><span class="line">&#125;</span><br><span class="line">若去掉:TableTennisPlayer(fn,ln,ht)则将使用基类的默认构造函数，除非你要如此，否则应显示调用正确的基类构造函数</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>派生类构造函数要点：</p>
-<ul>
-<li>首先创建基类对象</li>
-<li>派生类构造函数应通过成员初始化列表将基类信息传递给基类构造函数</li>
-<li>派生类构造函数应初始化派生类新增的数据成员</li>
-<li>派生类对象过期时，程序将首先调用派生类析构函数，再调用基类析构函数</li>
-</ul>
-</li>
-<li><p>派生类对象可以使用基类的方法，条件是方法不是私有的</p>
-</li>
-<li><p>基类指针可以再不进行显示类型转换的情况下指向派生类对象；基类引用可以在不进行显示类型转换的情况下引用派生类对象     然而，基类指针或引用只能用于调用基类方法</p>
-</li>
-<li><p>继承：</p>
-<ul>
-<li>公有继承：最常用，是一种is-a关系，即派生类对象也是一个基类对象</li>
-<li>保护继承</li>
-<li>私有继承</li>
-</ul>
-</li>
-<li><p>实现多态公有继承：</p>
-<ul>
-<li>在派生类中重新定义基类的方法</li>
-<li>使用虚方法：如果要在派生类中重新定义基类的方法，通常应将基类方法声明为虚的。这样，程序将根据对象类型而不是引用或指针的类型来选择方法版本。   在函数声明之前加上virtual</li>
-</ul>
-</li>
-<li><p>为基类声明一个虚析构函数也是一种惯例，这是为了确保释放派生对象时，按正确的顺序调用析构函数。</p>
-</li>
-<li><p>关键字virtual只用于类声明的方法原型中，而没有用于方法定义中</p>
-</li>
-<li><p>虚方法的使用典例：假设想要创建一个数组来同时保存基类和子类对象，直接做是办不到的。但是可以创建指向基类对象的指针数组，由于采用的是公有继承，指针既可以指向基类对象，也可以指向子类对象</p>
-</li>
-<li><p>静态联编与动态联编：将源代码中的函数调用解释为执行特定的函数代码被称为函数名联编。在编译过程中进行联编被称为静态联编，在运行时选择正确的虚方法被称为动态联编</p>
-</li>
-</ul>
-<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><ul>
-<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">虚成员函数和动态联编：</span><br><span class="line">BrassPlus为一个子类，Brass为基类</span><br><span class="line">BrassPlus ope;</span><br><span class="line">Brass*bp;</span><br><span class="line">bp = &amp;ope;</span><br><span class="line">bp-&gt;viewAcct();  <span class="comment">//viewAcct()在基类和子类中实现不同</span></span><br><span class="line"><span class="comment">//如果在基类中没有将viewAcct()声明为虚的，则bp-&gt;viewAcct()将根据指针类型(Brass*)调用Brass::ViewAcct()，所以编译器对非虚方法使用静态联编。</span></span><br><span class="line"><span class="comment">//然而如果在基类中将viewAcct()声明为虚的，则bp-&gt;ViewAcct()将根据对象类型(BrassPlus)调用BrassPlus::ViewAcct().即编译器对虚方法采用动态联编</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>)如果要在派生类中重新定义基类的方法，则将它设置为虚方法；否则，设置为非虚方法</span><br><span class="line">(<span class="number">2</span>)虚函数工作原理：编译器处理虚函数的方法：给每个对象添加一个隐藏成员。隐藏成员中保存了一个指向函数地址数组的指针。这种数组成为虚函数表(vtbl)。虚函数表中存储了为类对象进行声明的虚函数的地址。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>虚函数的一些其他知识：</p>
-<ul>
-<li>构造函数不能是虚函数</li>
-<li>析构函数应当是虚函数，除非类不用做基类 virtual ~BaseClass(){}   </li>
-<li>通常应给基类提供一个虚析构函数，即使它并不需要析构函数</li>
-<li>友元不能是虚函数，因友元不是类成员，而只有成员才能是虚函数</li>
-<li>如果重新定义继承的方法，应确保与原来的原型完全相同，但如果返回类型是基类引用或指针，则可以修改为指向派生类的引用和指针</li>
-<li>如果基类声明被重载了，则应在派生类中重新定义所有的基类版本</li>
-</ul>
-</li>
-<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">访问控制：<span class="keyword">protected</span></span><br><span class="line">与<span class="keyword">private</span>类似，在类外只能用公有类成员来访问<span class="keyword">protected</span>部分中的类成员。但派生类的成员可以直接访问基类的保护成员，但不能直接访问基类的私有成员</span><br><span class="line"><span class="comment">//最好对类数据成员采用私有访问控制，不要使用保护访问控制</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="抽象基类-ABC"><a href="#抽象基类-ABC" class="headerlink" title="抽象基类(ABC)"></a>抽象基类(ABC)</h2><ul>
-<li>比如两个类椭圆和圆可以分别实现，但效率不高。我们可以从Ellipse和Circle类中抽象出它们的共性，将这些特性放到一个ABC中，然后从BC中派生出这2个类。c++通过使用纯虚函数提供未实现的函数，纯虚函数声明的结尾处为=0</li>
-<li>当类声明中包含纯虚函数时，则不能创建该类的对象，即包含纯虚函数的类只用作基类</li>
-<li>设计ABC之前，首先应开发一个模型—-指出编程问题所需的类以及它们之间的相互关系</li>
-</ul>
-<h2 id="继承和动态内存分配"><a href="#继承和动态内存分配" class="headerlink" title="继承和动态内存分配"></a>继承和动态内存分配</h2><ul>
-<li>假设基类用了动态内存分配，派生类不用new：此时子类不需要定义显示析构函数(依具体情况来看)，复制构造函数和赋值运算符</li>
-<li>假设派生类使用了new:这种情况下必须为派生类定义显示析构函数，复制构造函数，赋值运算符</li>
-<li>这一部分很复杂，并没有彻底理解，详见c++primer plus P516面</li>
-</ul>
-<h2 id="类设计回顾——P523"><a href="#类设计回顾——P523" class="headerlink" title="类设计回顾——P523"></a>类设计回顾——P523</h2><h4 id="1-编译器生成的成员函数"><a href="#1-编译器生成的成员函数" class="headerlink" title="1.编译器生成的成员函数:"></a>1.编译器生成的成员函数:</h4><ul>
-<li>默认构造函数：要么没有参数，要么所有的参数都有默认值。如果没有定义构造函数，编译器将定义默认构造函数，另一功能是调用基类默认的构造函数以及调用本身是对象的成员所属类的默认构造函数。如果自己定义了某种构造函数，编译器将不会定义默认构造函数</li>
-<li>复制构造函数：接受其所属类的对象作为参数，下列情况下将使用复制构造函数:<ul>
-<li>将新对象初始化为一个同类对象</li>
-<li>按值将对象传递给函数</li>
-<li>函数按值返回函数</li>
-<li>编译器生成临时对象</li>
-</ul>
-</li>
-<li>赋值运算符：用于处理同类对象之间的赋值。若语句创建新的对象，则使用初始化；若修改已有的对象的值，则是赋值。编译器不会生成将一种类型赋给另一种类型的赋值运算符</li>
-</ul>
-<h4 id="2-其他的类方法"><a href="#2-其他的类方法" class="headerlink" title="2.其他的类方法"></a>2.其他的类方法</h4><ul>
-<li>构造函数：构造函数不同于其他方法，因为它创建新的对象，而其他方法只是被现有的对象调用，这是构造函数不被继承的原因之一</li>
-<li>​</li>
-<li>析构函数：一定要定义显示析构函数来释放类构造函数使用new分配的所有内存，并完成类对象所需的任何特殊的清理工作</li>
-<li>转换：使用一个参数就可以调用的构造函数定义了从参数类型到类类型的转换。在函数原型使用explicit将禁止进行隐式转换，但仍允许显示转换；但要将类类型转换为其他类型应定义转换函数。转换函数可以是没有参数的类成员函数，也可以是返回类型被声明为目标类型的类成员函数</li>
-<li>按值传递对象与传递引用：通常编写使用对象作为参数的函数时，应按引用而不是按值来传递对象，且若函数不修改对象，应将参数声明为const引用。另一原因是在继承使用虚函数时，被定义为接受基类引用参数的函数可以接受派生类</li>
-<li>返回对象和返回引用：有时候方法必须返回对象，但若可以不返回对象，则应返回引用。通用规则是，如果函数返回在函数中创建的临时对象，则不要使用引用。而如果返回的是通过引用或指针传递给它的对象，则应按引用返回对象</li>
-<li>使用const：可以使用const来确保方法不修改调用它的对象</li>
-</ul>
-<h4 id="3-公有继承的考虑因素"><a href="#3-公有继承的考虑因素" class="headerlink" title="3.公有继承的考虑因素"></a>3.公有继承的考虑因素</h4><ul>
-<li>要遵循is-a关系。如果派生类不是一种特殊的基类，则不要使用公有派生</li>
-<li>什么不能被继承：构造函数不能被继承。即创建派生类对象时，必须调用派生类的构造函数；析构函数也不能被继承，赋值运算符也是</li>
-<li>赋值运算符：较复杂，见P527</li>
-<li>私有成员与保护成员</li>
-<li>虚方法：如果希望派生类能够重新定义方法，则应在基类中将方法定义为虚的，这样可以启动动态联编；如果不希望重新定义方法，则不必将其声明为虚的</li>
-<li>析构函数：基类的析构函数应当是虚的</li>
-<li>友元函数：因为它不是类成员，则不能继承</li>
-</ul>
-<h4 id="4-类函数小结——-见P530"><a href="#4-类函数小结——-见P530" class="headerlink" title="4.类函数小结——-见P530"></a>4.类函数小结——-见P530</h4>
+<h2 id="Rapidjson-使用"><a href="#Rapidjson-使用" class="headerlink" title="Rapidjson 使用"></a>Rapidjson 使用</h2><p><a href="https://github.com/Tencent/rapidjson.git" title="点击跳转或直接复制克隆" target="_blank" rel="noopener">git主页</a></p>
+<p><a href="http://rapidjson.org/zh-cn/md_doc_dom_8zh-cn.html" title="点击跳转" target="_blank" rel="noopener">中文文档</a></p>
+<h3 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h3><p>rapidjson是只依赖于头文件的库，没有动态库、静态库的导入过程。</p>
+<ol>
+<li>将头文件加入工程</li>
+</ol>
+<p>方法一：将include复制到系统头文件地址，与系统include文件夹合并</p>
+<p>方法二：将include复制添加进入工程文件，通常还需设定头文件搜索目录</p>
+<ol>
+<li>代码引用头文件</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"rapidjson/&lt;对应模块&gt;"</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="Document对象"><a href="#Document对象" class="headerlink" title="Document对象"></a>Document对象</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Document作为一个JSON的可操作对象</span></span><br><span class="line"><span class="comment">// 1. 将JSON Cstr解析至Document</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* json = <span class="string">"&#123;\"project\": \"rapidjson&#125;"</span></span><br><span class="line">Document d;</span><br><span class="line">d.Parse(json);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 修改Document对象的键值</span></span><br><span class="line">Value&amp; s = d[<span class="string">"stars"</span>];</span><br><span class="line">s.SetInt(s.GetInt() + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 将Document转换成string</span></span><br><span class="line">StringBuffer buffer;</span><br><span class="line">Writer&lt;StringBuffer&gt; writer(buffer);</span><br><span class="line">d.Accept(writer);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出 &#123;"project":"rapidjson","stars":11&#125;</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; buffer.GetString() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="http://rapidjson.org/zh-cn/md_doc_tutorial_8zh-cn.html#ValueDocument" title="点击跳转" target="_blank" rel="noopener">Document对象的分析</a></p>
+<h4 id="Writer对象"><a href="#Writer对象" class="headerlink" title="Writer对象"></a>Writer对象</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主要作用是将数据分步写入StringBuffer</span></span><br><span class="line">StringBuffer s;</span><br><span class="line">Writer&lt;StringBuffer&gt; writer(s);</span><br><span class="line"></span><br><span class="line">writer.StartObject();               <span class="comment">// Between StartObject()/EndObject(), </span></span><br><span class="line"></span><br><span class="line">writer.Key(<span class="string">"hello"</span>);                <span class="comment">// output a key,</span></span><br><span class="line">writer.String(<span class="string">"world"</span>);             <span class="comment">// follow by a value.</span></span><br><span class="line">writer.Key(<span class="string">"t"</span>);</span><br><span class="line">writer.Bool(<span class="literal">true</span>);</span><br><span class="line">writer.Key(<span class="string">"f"</span>);</span><br><span class="line">writer.Bool(<span class="literal">false</span>);</span><br><span class="line">writer.Key(<span class="string">"n"</span>);</span><br><span class="line">writer.Null();</span><br><span class="line">writer.Key(<span class="string">"i"</span>);</span><br><span class="line">writer.Uint(<span class="number">123</span>);</span><br><span class="line">writer.Key(<span class="string">"pi"</span>);</span><br><span class="line">writer.Double(<span class="number">3.1416</span>);</span><br><span class="line">writer.Key(<span class="string">"a"</span>);</span><br><span class="line">writer.StartArray();                <span class="comment">// Between StartArray()/EndArray(),</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    writer.Uint(i);                 <span class="comment">// all values are elements of the array.</span></span><br><span class="line">writer.EndArray();</span><br><span class="line"></span><br><span class="line">writer.EndObject();</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;"hello":"world","t":true,"f":false,"n":null,"i":123,"pi":3.1416,"a":[0,1,2,3]&#125;</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s.GetString() &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="http://rapidjson.org/zh-cn/classrapidjson_1_1_writer.html" title="点击跳转" target="_blank" rel="noopener">Writer 成员函数列表</a></p>
+<h3 id="Reader对象-和-数据Validation"><a href="#Reader对象-和-数据Validation" class="headerlink" title="Reader对象 和 数据Validation"></a>Reader对象 和 数据Validation</h3><p>分别见<code>/example</code>中的<code>schemavalidator</code>和<code>simplewritter</code></p>
+
       
     </div>
 
@@ -597,7 +510,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/json/" rel="tag"><i class="fa fa-tag"></i> json</a>
           
         </div>
       
@@ -610,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/26/c++ primer plus学习(五)/" rel="next" title="c++ primer plus学习（五）">
-                <i class="fa fa-chevron-left"></i> c++ primer plus学习（五）
+              <a href="/2018/07/16/QC/" rel="next" title="深信服组质量收集模块代码总结">
+                <i class="fa fa-chevron-left"></i> 深信服组质量收集模块代码总结
               </a>
             
           </div>
@@ -620,8 +533,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/28/c++ primer plus学习(七)/" rel="prev" title="c++ primer plus学习（七）">
-                c++ primer plus学习（七） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/22/c++ primer plus学习(一)/" rel="prev" title="c++ primer plus学习（一）">
+                c++ primer plus学习（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -836,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类继承"><span class="nav-number">1.</span> <span class="nav-text">类继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数"><span class="nav-number">2.</span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象基类-ABC"><span class="nav-number">3.</span> <span class="nav-text">抽象基类(ABC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承和动态内存分配"><span class="nav-number">4.</span> <span class="nav-text">继承和动态内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类设计回顾——P523"><span class="nav-number">5.</span> <span class="nav-text">类设计回顾——P523</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-编译器生成的成员函数"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.编译器生成的成员函数:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-其他的类方法"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.其他的类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-公有继承的考虑因素"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.公有继承的考虑因素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-类函数小结——-见P530"><span class="nav-number">5.0.4.</span> <span class="nav-text">4.类函数小结——-见P530</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rapidjson-使用"><span class="nav-number">1.</span> <span class="nav-text">Rapidjson 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入工程"><span class="nav-number">1.1.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">1.2.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Document对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Document对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Writer对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Writer对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reader对象-和-数据Validation"><span class="nav-number">1.3.</span> <span class="nav-text">Reader对象 和 数据Validation</span></a></li></ol></li></ol></div>
             
 
           </div>
