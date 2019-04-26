@@ -134,7 +134,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/15/CHAPTER1/10.png">
 <meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz14.png">
 <meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz15.png">
-<meta property="og:updated_time" content="2019-04-25T15:27:20.586Z">
+<meta property="og:updated_time" content="2019-04-26T02:41:25.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural network and deep learning chapter 1">
 <meta name="twitter:image" content="http://neuralnetworksanddeeplearning.com/images/tikz0.png">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-25 23:27:20" itemprop="dateModified" datetime="2019-04-25T23:27:20+08:00">2019-04-25</time>
+                <time title="修改时间：2019-04-26 10:41:25" itemprop="dateModified" datetime="2019-04-26T10:41:25+08:00">2019-04-26</time>
               
             
           </span>
@@ -505,8 +505,8 @@
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz0.png" alt="img"></p>
 </li>
 <li><p>Rosenblatt提出了一种计算输出的方法。即引入权重w1,w2,…实数表示相应输入对输出的重要性。神经元输出0或1根据加权和是小于或大于一个threshold value.这个阈值也是一个实数，它是这个神经元的参数。数学表达式如下：</p>
-<p>$$<br>output=\left{\begin{array}{ll}{0} &amp; {\text { if } \sum_{j} w_{j} x_{j} \leq \text { threshold }} \ {1} &amp; {\text { if } \sum_{j} w_{j} x_{j}&gt;\text { threshold }}\end{array}\right.<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+output=\left\{\begin{array}{ll}{0} & {\text { if } \sum_{j} w_{j} x_{j} \leq \text { threshold }} \\ {1} & {\text { if } \sum_{j} w_{j} x_{j}>\text { threshold }}\end{array}\right.</script></li>
 <li><p>这就是最基础的数学模型。你可以把神经元当作一个权衡各种依据来做决定的设备。通过调整weights和threshold value，我们可以得到不同的决策模型</p>
 </li>
 <li><p>通过增加神经元个数与层数，我们可以做出很复杂的决策模型</p>
@@ -543,13 +543,16 @@
 <li><p>输入不再是wx+b，而是<img src="/2019/04/15/CHAPTER1/5.png" alt="5"></p>
 </li>
 <li><p>其中sigmoid function定义如下</p>
-<p>$$<br>\sigma(z) \equiv \frac{1}{1+e^{-z}}<br>$$<br>带入z后可以得到具体输出为</p>
-<p>$$<br>\frac{1}{1+\exp \left(-\sum_{j} w_{j} x_{j}-b\right)}<br>$$<br>神经元的结构还是一样</p>
+<script type="math/tex; mode=display">
+\sigma(z) \equiv \frac{1}{1+e^{-z}}</script><p>带入z后可以得到具体输出为</p>
+<script type="math/tex; mode=display">
+\frac{1}{1+\exp \left(-\sum_{j} w_{j} x_{j}-b\right)}</script><p>神经元的结构还是一样</p>
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz9.png" alt="img"></p>
 </li>
-<li><p>实际上，2者很相似。我们假设<br>$$<br>若z≡w⋅x+b&gt;&gt;0,则e^{-z}\approx0，\sigma(z)\approx1<br>$$</p>
-<p>$$<br>若z≡w⋅x+b&lt;&lt;0,则e^{-z}\rightarrow\infty，\sigma(z)\approx0<br>$$</p>
-<p>你会发现这实际上和perceptrons做的事一样</p>
+<li><p>实际上，2者很相似。我们假设</p>
+<script type="math/tex; mode=display">
+若z≡w⋅x+b>>0,则e^{-z}\approx0，\sigma(z)\approx1</script><script type="math/tex; mode=display">
+若z≡w⋅x+b<<0,则e^{-z}\rightarrow\infty，\sigma(z)\approx0</script><p>你会发现这实际上和perceptrons做的事一样</p>
 </li>
 </ul>
 </li>
@@ -560,9 +563,10 @@
 <p>可以看作是一个阶跃函数的smooth版本</p>
 <p><img src="/2019/04/15/CHAPTER1/7.png" alt="7"></p>
 <p>事实上perceptron的功能就和阶跃函数一个道理.</p>
-<p>而光滑意味着对于weights和bias小的改变会导致输出的小的改变<br>$$<br>而实际上，微积分告诉我们\Delta output可以被很好的如下估计：<br>$$</p>
-<p>$$<br>Δoutput≈∑\frac{\partial output}{\partial wj}Δwj+\frac{\partial output}{\partial b}Δb<br>$$</p>
-<p>上述的式子告诉我们Δoutput是ΔWj和Δb的线性函数，这使得我们可以很容易地选择小的改变来达成输出上所想要的改变。因为输出是0~1内任意数值，所以我们可以用它来表示一些连续变化的东西，但如果我们想通过输出来进行一个二元判断，我们就也可以选一个值比如0.5来做分界.</p>
+<p>而光滑意味着对于weights和bias小的改变会导致输出的小的改变</p>
+<script type="math/tex; mode=display">
+而实际上，微积分告诉我们\Delta output可以被很好的如下估计：</script><script type="math/tex; mode=display">
+Δoutput≈∑\frac{\partial output}{\partial wj}Δwj+\frac{\partial output}{\partial b}Δb</script><p>上述的式子告诉我们Δoutput是ΔWj和Δb的线性函数，这使得我们可以很容易地选择小的改变来达成输出上所想要的改变。因为输出是0~1内任意数值，所以我们可以用它来表示一些连续变化的东西，但如果我们想通过输出来进行一个二元判断，我们就也可以选一个值比如0.5来做分界.</p>
 <h3 id="The-architecture-of-neural-networks"><a href="#The-architecture-of-neural-networks" class="headerlink" title="The architecture of neural networks"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#the_architecture_of_neural_networks" target="_blank" rel="noopener">The architecture of neural networks</a></h3><ul>
 <li><p>接下来我们来看一些neural networks的术语</p>
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz11.png" alt="img"></p>
@@ -583,20 +587,25 @@
 <p>可能有人会想输出用4位2进制数表示不也行吗？但这样很难如10位一样有具体的与数字的组成部分的对应关系，这里我不细讲了</p>
 <h3 id="Learning-with-gradient-descent"><a href="#Learning-with-gradient-descent" class="headerlink" title="Learning with gradient descent"></a><a href="http://neuralnetworksanddeeplearning.com/chap1.html#learning_with_gradient_descent" target="_blank" rel="noopener">Learning with gradient descent</a></h3><p>接下来讲讲我们用来优化weights和bias的算法，即梯度下降。为了方便，我们用x来表示输入，它是一个28×28=783维的vector,相应的我们想要的输出(即正确的数字)表示为y=y(x)，y为一个10维vector。</p>
 <ul>
-<li><p>首先我们定义一个cost function用于表征数字识别的好坏<br>$$<br>C(w,b)≡\frac{1 }{2n}\sum_{x}^{}\left |y(x)−a\right |^2<br>$$<br>上式中，w为weights,b为biases,n为训练样本数，a为根据网络计算出的预测数字，为一个10维vector，注意这个求和是针对所有训练输入样本的。如果C(w,b)≈0，那么我们的算法就做的很好，那么如何做到呢，通过梯度下降</p>
+<li><p>首先我们定义一个cost function用于表征数字识别的好坏</p>
+<script type="math/tex; mode=display">
+C(w,b)≡\frac{1 }{2n}\sum_{x}^{}\left \|y(x)−a\right \|^2</script><p>上式中，w为weights,b为biases,n为训练样本数，a为根据网络计算出的预测数字，为一个10维vector，注意这个求和是针对所有训练输入样本的。如果C(w,b)≈0，那么我们的算法就做的很好，那么如何做到呢，通过梯度下降</p>
 </li>
-<li><p>具体还是用一个我们熟悉的例子，要让一个小球在山谷中尽快下落并达到全局最低，我们要做的就是计算出那一点的梯度，回顾一下数学中的梯度定义，它表征了最快增长的方向，我们只需计算出梯度，那么其相反方向即为最快下降方向，我们就是通过这个来进行更新w和b,公式推导很简单，我就省略了:<br>$$<br>wk→w′k=wk−\eta \frac{\partial C}{\partial wk}<br>$$</p>
-</li>
+<li><p>具体还是用一个我们熟悉的例子，要让一个小球在山谷中尽快下落并达到全局最低，我们要做的就是计算出那一点的梯度，回顾一下数学中的梯度定义，它表征了最快增长的方向，我们只需计算出梯度，那么其相反方向即为最快下降方向，我们就是通过这个来进行更新w和b,公式推导很简单，我就省略了:</p>
+<script type="math/tex; mode=display">
+wk→w′k=wk−\eta \frac{\partial C}{\partial wk}</script></li>
 </ul>
-<p>$$<br>bl→b′l=bl−\eta \frac{\partial C}{\partial bl}<br>$$</p>
-<p>​    通过不断调用上述方法就可以不断的优化，最终找到一个cost function的全局最小</p>
+<script type="math/tex; mode=display">
+bl→b′l=bl−\eta \frac{\partial C}{\partial bl}</script><p>​    通过不断调用上述方法就可以不断的优化，最终找到一个cost function的全局最小</p>
 <ul>
 <li><p>我们这里提一下梯度下降的一个问题，因为求C时我们是对所有训练样本求和，如果x非常大，那么光进行一步更新就要花大量的时间，我们很难较快的看到优化效果。所以，我们有了随机梯度下降法，可用来加速学习，我们随机选择输入样本中的一部分进行梯度下降，使得</p>
-<p>$$<br>\frac{\sum_{j=1}^{m} \nabla C_{X_{j}}}{m} \approx \frac{\sum_{x} \nabla C_{x}}{n}=\nabla C<br>$$<br>那么相应的有</p>
-<p>$$<br>\nabla C \approx \frac{1}{m} \sum_{j=1}^{m} \nabla C_{X_{j}}<br>$$<br>证明我们可以这么做，之后应用到我们的梯度下降上</p>
-<p>$$<br>w_{k} \rightarrow w_{k}^{\prime}=w_{k}-\frac{\eta}{m} \sum_{j} \frac{\partial C_{X_{j}}}{\partial w_{k}}<br>$$</p>
-<p>$$<br>b_{l} \rightarrow b_{l}^{\prime}=b_{l}-\frac{\eta}{m} \sum_{j} \frac{\partial C_{X_{j}}}{\partial b_{l}}<br>$$</p>
-<p>这样我们就每次取m个样本训练，知道耗尽训练集，这相当于完成了一轮训练，之后我们再不断一轮轮重复</p>
+<script type="math/tex; mode=display">
+\frac{\sum_{j=1}^{m} \nabla C_{X_{j}}}{m} \approx \frac{\sum_{x} \nabla C_{x}}{n}=\nabla C</script><p>那么相应的有</p>
+<script type="math/tex; mode=display">
+\nabla C \approx \frac{1}{m} \sum_{j=1}^{m} \nabla C_{X_{j}}</script><p>证明我们可以这么做，之后应用到我们的梯度下降上</p>
+<script type="math/tex; mode=display">
+w_{k} \rightarrow w_{k}^{\prime}=w_{k}-\frac{\eta}{m} \sum_{j} \frac{\partial C_{X_{j}}}{\partial w_{k}}</script><script type="math/tex; mode=display">
+b_{l} \rightarrow b_{l}^{\prime}=b_{l}-\frac{\eta}{m} \sum_{j} \frac{\partial C_{X_{j}}}{\partial b_{l}}</script><p>这样我们就每次取m个样本训练，知道耗尽训练集，这相当于完成了一轮训练，之后我们再不断一轮轮重复</p>
 </li>
 <li><p>还有一点，我们虽然是以二维为例子来研究，但这是通用的，可以拓展到高维</p>
 </li>
@@ -659,8 +668,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/Algorithms4_javaEnvironment/" rel="next" title="《算法4》java环境配置">
-                <i class="fa fa-chevron-left"></i> 《算法4》java环境配置
+              <a href="/2019/04/05/CreateGithubRepositories/" rel="next" title="如何在本地创建repositories并上传至github">
+                <i class="fa fa-chevron-left"></i> 如何在本地创建repositories并上传至github
               </a>
             
           </div>
@@ -1140,6 +1149,43 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
+  
+
 
   
   

@@ -473,7 +473,7 @@
 <p>大家以前如果没有接触过OJ平台，对他的输入输出可能就会有一些懵逼，这次答疑就解释一下OJ平台的运作原理。</p>
 <p>首先看一下一套例题 “A+B” 的答案</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="keyword">int</span> a, b;    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a+b);    </span><br><span class="line">    &#125;    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-EOF是啥"><a href="#1-EOF是啥" class="headerlink" title="1.EOF是啥"></a>1.EOF是啥</h2><p>EOF–&gt;End of File;<br>是文件结束符，和’a’,’0’,’\n’,’\t’一样，都是char型的字符，可以在ASCII码表里面找到它。在键盘中用Ctrl+Z的方法来键入这个字符。<br>作用是什么呢？<br>首先大家来新建一个文本文档（后缀为.txt），然后打开它，输入123，回车，456，保存，关闭。那么这个文本文档的内容是什么呢？ 答案是：”123\n456”吗？，实际上不对。排除Windows记事本自己的小九九的话，在456这三个字符之后还会有一个EOF字符（同理在123之前也会有一个文件开始字符）。</p>
+<h2 id="1-EOF是啥"><a href="#1-EOF是啥" class="headerlink" title="1.EOF是啥"></a>1.EOF是啥</h2><p>EOF—&gt;End of File;<br>是文件结束符，和’a’,’0’,’\n’,’\t’一样，都是char型的字符，可以在ASCII码表里面找到它。在键盘中用Ctrl+Z的方法来键入这个字符。<br>作用是什么呢？<br>首先大家来新建一个文本文档（后缀为.txt），然后打开它，输入123，回车，456，保存，关闭。那么这个文本文档的内容是什么呢？ 答案是：”123\n456”吗？，实际上不对。排除Windows记事本自己的小九九的话，在456这三个字符之后还会有一个EOF字符（同理在123之前也会有一个文件开始字符）。</p>
 <h2 id="2-scanf的返回值"><a href="#2-scanf的返回值" class="headerlink" title="2.scanf的返回值"></a>2.scanf的返回值</h2><p>简单来讲，scanf的返回值有如下两种情况</p>
 <ul>
 <li>正确按指定格式输入变量的个数；也即能正确接收到值的变量个数。</li>
@@ -496,8 +496,8 @@
 <li>&lt;：用于输入重定向，把&lt;后面的文件重定向为stdin</li>
 <li>>：用于输出重定向，把&gt;后面的文件重定向为stdout</li>
 </ul>
-<h2 id="4-解释stdin和stdout"><a href="#4-解释stdin和stdout" class="headerlink" title="4.解释stdin和stdout"></a>4.解释stdin和stdout</h2><p>默认情况下，c语言所有的scanf会从stdin中读取数据，printf会把所有打印数据输出到stdout。<br>你们以前写的代码运行的时候，在黑窗窗里面输入的数据都会导入stdin，黑窗窗自动显示的文本全部来源于stdout。<br>这样就有了<br>1.键盘输入–&gt;stdin文件–&gt;scanf读取–&gt;给int、double等等数据赋值<br>2.printf生成输出字符串–&gt;输出字符串进入stdin–&gt;打印到黑窗窗</p>
-<h2 id="5-回到A-B-lt-input-txt-gt-output-txt"><a href="#5-回到A-B-lt-input-txt-gt-output-txt" class="headerlink" title="5.回到A+B &lt; input.txt &gt; output.txt"></a>5.回到A+B &lt; input.txt &gt; output.txt</h2><p>使用&lt; 和 &gt; 之后，4中的流程变成了<br>1.键盘输入–&gt;input.txt文件–&gt;scanf读取–&gt;给int、double等等数据赋值<br>2.printf生成输出字符串–&gt;输出字符串进入output.txt（不存在则新建该文件）–&gt;打印到黑窗窗（这一步就没有了，因为output.txt并不是stdout）。</p>
+<h2 id="4-解释stdin和stdout"><a href="#4-解释stdin和stdout" class="headerlink" title="4.解释stdin和stdout"></a>4.解释stdin和stdout</h2><p>默认情况下，c语言所有的scanf会从stdin中读取数据，printf会把所有打印数据输出到stdout。<br>你们以前写的代码运行的时候，在黑窗窗里面输入的数据都会导入stdin，黑窗窗自动显示的文本全部来源于stdout。<br>这样就有了<br>1.键盘输入—&gt;stdin文件—&gt;scanf读取—&gt;给int、double等等数据赋值<br>2.printf生成输出字符串—&gt;输出字符串进入stdin—&gt;打印到黑窗窗</p>
+<h2 id="5-回到A-B-lt-input-txt-gt-output-txt"><a href="#5-回到A-B-lt-input-txt-gt-output-txt" class="headerlink" title="5.回到A+B &lt; input.txt &gt; output.txt"></a>5.回到A+B &lt; input.txt &gt; output.txt</h2><p>使用&lt; 和 &gt; 之后，4中的流程变成了<br>1.键盘输入—&gt;input.txt文件—&gt;scanf读取—&gt;给int、double等等数据赋值<br>2.printf生成输出字符串—&gt;输出字符串进入output.txt（不存在则新建该文件）—&gt;打印到黑窗窗（这一步就没有了，因为output.txt并不是stdout）。</p>
 <p>现在就可以明白，这个程序运行的流程为</p>
 <ol>
 <li>从input中scanf到<strong>1,1</strong>并赋值给a和b，scanf返回值为<strong>2</strong>不等于EOF，进入循环体内。</li>
@@ -1030,6 +1030,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

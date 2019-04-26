@@ -504,7 +504,7 @@
 </ul>
 </li>
 <li><h3 id="1-Figures"><a href="#1-Figures" class="headerlink" title="1.Figures"></a>1.Figures</h3><p>A figure is the windows in the GUI that has “Figure #” as title. Figures are numbered starting from 1 as opposed to the normal Python way starting from 0. This is clearly MATLAB-style. There are several parameters that determine what the figure looks like:</p>
-<p>| Argument    | Default            | Description                                 |<br>| ———– | —————— | ——————————————- |<br>| <code>num</code>       | <code>1</code>                | number of figure                            |<br>| <code>figsize</code>   | <code>figure.figsize</code>   | figure size in inches (width, height)       |<br>| <code>dpi</code>       | <code>figure.dpi</code>       | resolution in dots per inch                 |<br>| <code>facecolor</code> | <code>figure.facecolor</code> | color of the drawing background             |<br>| <code>edgecolor</code> | <code>figure.edgecolor</code> | color of edge around the drawing background |<br>| <code>frameon</code>   | <code>True</code>             | draw figure frame or not                    |</p>
+<p>| Argument    | Default            | Description                                 |<br>| —————- | ————————— | —————————————————————- |<br>| <code>num</code>       | <code>1</code>                | number of figure                            |<br>| <code>figsize</code>   | <code>figure.figsize</code>   | figure size in inches (width, height)       |<br>| <code>dpi</code>       | <code>figure.dpi</code>       | resolution in dots per inch                 |<br>| <code>facecolor</code> | <code>figure.facecolor</code> | color of the drawing background             |<br>| <code>edgecolor</code> | <code>figure.edgecolor</code> | color of edge around the drawing background |<br>| <code>frameon</code>   | <code>True</code>             | draw figure frame or not                    |</p>
 <p>The defaults can be specified in the resource file and will be used most of the time. Only the number of the figure is frequently changed.</p>
 <p>As with other objects, you can set figure properties also setp or with the set_something methods.</p>
 <p>When you work with the GUI you can close a figure by clicking on the x in the upper right corner. But you can close a figure programmatically by calling close. Depending on the argument it closes (1) the current figure (no argument), (2) a specific figure (figure number or figure instance as argument), or (3) all figures (<code>&quot;all&quot;</code> as argument).</p>
@@ -1069,6 +1069,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

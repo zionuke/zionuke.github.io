@@ -537,14 +537,14 @@
 <h2 id="抽象基类-ABC"><a href="#抽象基类-ABC" class="headerlink" title="抽象基类(ABC)"></a>抽象基类(ABC)</h2><ul>
 <li>比如两个类椭圆和圆可以分别实现，但效率不高。我们可以从Ellipse和Circle类中抽象出它们的共性，将这些特性放到一个ABC中，然后从BC中派生出这2个类。c++通过使用纯虚函数提供未实现的函数，纯虚函数声明的结尾处为=0</li>
 <li>当类声明中包含纯虚函数时，则不能创建该类的对象，即包含纯虚函数的类只用作基类</li>
-<li>设计ABC之前，首先应开发一个模型—指出编程问题所需的类以及它们之间的相互关系</li>
+<li>设计ABC之前，首先应开发一个模型—-指出编程问题所需的类以及它们之间的相互关系</li>
 </ul>
 <h2 id="继承和动态内存分配"><a href="#继承和动态内存分配" class="headerlink" title="继承和动态内存分配"></a>继承和动态内存分配</h2><ul>
 <li>假设基类用了动态内存分配，派生类不用new：此时子类不需要定义显示析构函数(依具体情况来看)，复制构造函数和赋值运算符</li>
 <li>假设派生类使用了new:这种情况下必须为派生类定义显示析构函数，复制构造函数，赋值运算符</li>
 <li>这一部分很复杂，并没有彻底理解，详见c++primer plus P516面</li>
 </ul>
-<h2 id="类设计回顾—-P523"><a href="#类设计回顾—-P523" class="headerlink" title="类设计回顾—-P523"></a>类设计回顾—-P523</h2><h4 id="1-编译器生成的成员函数"><a href="#1-编译器生成的成员函数" class="headerlink" title="1.编译器生成的成员函数:"></a>1.编译器生成的成员函数:</h4><ul>
+<h2 id="类设计回顾——P523"><a href="#类设计回顾——P523" class="headerlink" title="类设计回顾——P523"></a>类设计回顾——P523</h2><h4 id="1-编译器生成的成员函数"><a href="#1-编译器生成的成员函数" class="headerlink" title="1.编译器生成的成员函数:"></a>1.编译器生成的成员函数:</h4><ul>
 <li>默认构造函数：要么没有参数，要么所有的参数都有默认值。如果没有定义构造函数，编译器将定义默认构造函数，另一功能是调用基类默认的构造函数以及调用本身是对象的成员所属类的默认构造函数。如果自己定义了某种构造函数，编译器将不会定义默认构造函数</li>
 <li>复制构造函数：接受其所属类的对象作为参数，下列情况下将使用复制构造函数:<ul>
 <li>将新对象初始化为一个同类对象</li>
@@ -573,7 +573,7 @@
 <li>析构函数：基类的析构函数应当是虚的</li>
 <li>友元函数：因为它不是类成员，则不能继承</li>
 </ul>
-<h4 id="4-类函数小结—–见P530"><a href="#4-类函数小结—–见P530" class="headerlink" title="4.类函数小结—–见P530"></a>4.类函数小结—–见P530</h4>
+<h4 id="4-类函数小结——-见P530"><a href="#4-类函数小结——-见P530" class="headerlink" title="4.类函数小结——-见P530"></a>4.类函数小结——-见P530</h4>
       
     </div>
 
@@ -821,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类继承"><span class="nav-number">1.</span> <span class="nav-text">类继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数"><span class="nav-number">2.</span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象基类-ABC"><span class="nav-number">3.</span> <span class="nav-text">抽象基类(ABC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承和动态内存分配"><span class="nav-number">4.</span> <span class="nav-text">继承和动态内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类设计回顾—-P523"><span class="nav-number">5.</span> <span class="nav-text">类设计回顾—-P523</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-编译器生成的成员函数"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.编译器生成的成员函数:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-其他的类方法"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.其他的类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-公有继承的考虑因素"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.公有继承的考虑因素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-类函数小结—–见P530"><span class="nav-number">5.0.4.</span> <span class="nav-text">4.类函数小结—–见P530</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类继承"><span class="nav-number">1.</span> <span class="nav-text">类继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数"><span class="nav-number">2.</span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象基类-ABC"><span class="nav-number">3.</span> <span class="nav-text">抽象基类(ABC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承和动态内存分配"><span class="nav-number">4.</span> <span class="nav-text">继承和动态内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类设计回顾——P523"><span class="nav-number">5.</span> <span class="nav-text">类设计回顾——P523</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-编译器生成的成员函数"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.编译器生成的成员函数:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-其他的类方法"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.其他的类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-公有继承的考虑因素"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.公有继承的考虑因素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-类函数小结——-见P530"><span class="nav-number">5.0.4.</span> <span class="nav-text">4.类函数小结——-见P530</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1090,6 +1090,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

@@ -472,9 +472,9 @@
 <h2 id="友元，异常和其他"><a href="#友元，异常和其他" class="headerlink" title="友元，异常和其他"></a>友元，异常和其他</h2><h3 id="1-友元"><a href="#1-友元" class="headerlink" title="1.友元"></a>1.友元</h3><ul>
 <li>类并非只能拥有友元函数，也可以将类作为友元。这种情况下，友元类的所有方法都可以访问原始类的私有成员和保护成员</li>
 <li>friend class Remote使Remote成为友元类。友元声明可以位于公有，私有或保护部分，其所在的位置无关紧要</li>
-<li>友元成员函数：如何仅让特定的类成员成为另一个类的友元？为了避免声明时的依赖循环，这里使用前向声明比较好—–详见P607</li>
+<li>友元成员函数：如何仅让特定的类成员成为另一个类的友元？为了避免声明时的依赖循环，这里使用前向声明比较好——-详见P607</li>
 <li>其他友元关系：两个类互为友元</li>
-<li>共同的友元：需要使用友元的另一种情况是，函数要访问两个类的私有数据。—-详见P610，有时将函数作为两个类的友元更合理</li>
+<li>共同的友元：需要使用友元的另一种情况是，函数要访问两个类的私有数据。——详见P610，有时将函数作为两个类的友元更合理</li>
 </ul>
 <h3 id="2-嵌套类"><a href="#2-嵌套类" class="headerlink" title="2.嵌套类"></a>2.嵌套类</h3><ul>
 <li>c++中可以把类声明放在另一个类中。在另一个类中被声明的类被称为嵌套类，它通过提供新的类型作用域来避免名称混乱；包含类的成员函数可以创建和使用被嵌套类的对象；而仅当声明位于公有部分，才能在包含类的外面使用嵌套类，而且必须使用作用域解析运算符</li>
@@ -490,31 +490,31 @@
 <li>调用abort()，原型位于头文件cstdlib中，但此方法是否刷新缓存区不清楚，而用exit()将刷新文件缓存区，但不显示消息</li>
 <li>返回错误码：即使用函数的返回值来指出问题，典型的比如bool函数</li>
 <li>异常机制：异常提供了将控制权从程序的一部分传递到另一部分的途径</li>
-<li>对异常的处理有3个组成部分：—–示例详见P619<ul>
+<li>对异常的处理有3个组成部分：——-示例详见P619<ul>
 <li>引发异常</li>
 <li>使用处理程序捕获异常</li>
 <li>使用try块</li>
 </ul>
 </li>
 <li>如果try块中的某条语句导致异常被引发，则后面的catch块将对异常进行处理</li>
-<li>将对象用作异常类型：通常，引发异常的函数将传递一个对象。这样做的优点之一是可以使用不同的异常类型来区分不同的函数在不同情况下引发的异常。另外，对象可以携带信息，程序员可以根据这些信息来确定引发异常的原因。同时，catch块可根据这些信息来决定采取什么样的措施——示例详见P622</li>
+<li>将对象用作异常类型：通常，引发异常的函数将传递一个对象。这样做的优点之一是可以使用不同的异常类型来区分不同的函数在不同情况下引发的异常。另外，对象可以携带信息，程序员可以根据这些信息来确定引发异常的原因。同时，catch块可根据这些信息来决定采取什么样的措施———示例详见P622</li>
 <li>异常规范和c++11：推荐是不要使用异常规范这项功能；但c++11确实支持一种特殊的异常规范：可以使用noexcept指出函数不会引发异常</li>
-<li>栈解退：—详见P625，较复杂              这里有很重要的一点：程序进行栈解退以回到能够捕获异常的地方时，将释放栈中的自动存储型变量。如果变量是类对象，将为该对象调用析构函数；与此同时，重新引发的异常将被传递给main(),在该函数中，合适的catch块将捕获它并对其进行处理</li>
+<li>栈解退：—-详见P625，较复杂              这里有很重要的一点：程序进行栈解退以回到能够捕获异常的地方时，将释放栈中的自动存储型变量。如果变量是类对象，将为该对象调用析构函数；与此同时，重新引发的异常将被传递给main(),在该函数中，合适的catch块将捕获它并对其进行处理</li>
 <li>虽然throw-catch机制类似于函数参数和函数返回机制，但还是有些不同之处。其中之一是函数中的返回语句将控制权返回到调用它的函数，而throw语句将控制权向上返回到第一个这样的函数：包含能够捕获相应异常的try-catch组合；         另一个不同之处是引发异常时编译器总是创建一个临时拷贝，即使异常规范和catch块中指定的是引用</li>
 <li>exception类：exception头文件定义了exception类。c++可以把它用作其他异常类的基类。代码可以引发exception异常，也可以将exception类用作基类</li>
-<li>有关exception类还有一些更细致的类—-详见P631</li>
+<li>有关exception类还有一些更细致的类——详见P631</li>
 <li>异常，类与继承见P635</li>
 <li>有关异常的注意事项：首先，通常应在程序设计时就加入异常处理功能，而不是以后再添加，但这也会带来麻烦。</li>
 </ul>
-<h3 id="4-RTTI—运行阶段类型识别"><a href="#4-RTTI—运行阶段类型识别" class="headerlink" title="4.RTTI—运行阶段类型识别"></a>4.RTTI—运行阶段类型识别</h3><ul>
+<h3 id="4-RTTI—-运行阶段类型识别"><a href="#4-RTTI—-运行阶段类型识别" class="headerlink" title="4.RTTI—-运行阶段类型识别"></a>4.RTTI—-运行阶段类型识别</h3><ul>
 <li><p>c++有3个支持RTTI的元素</p>
 <ul>
-<li>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则，该运算符返回0—空指针</li>
+<li>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则，该运算符返回0—-空指针</li>
 <li>typeid运算符返回一个指出对象的类型的值</li>
 <li>type_info结构存储了有关特定类型的信息</li>
 </ul>
 </li>
-<li><p>只能讲RTTI用于包含虚函数的类层次结构，原因在于只有对于这种类层次结构，才应该将派生对象的地址赋给基类指针————一定要记住，RTTI只适用于包含虚函数的类</p>
+<li><p>只能讲RTTI用于包含虚函数的类层次结构，原因在于只有对于这种类层次结构，才应该将派生对象的地址赋给基类指针——————一定要记住，RTTI只适用于包含虚函数的类</p>
 <ul>
 <li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dynamic_cast</span>运算符是最常用的RTTI组件，它不能回答“指针指向的是哪类对象”这样的问题，但能够回答“是否可以安全将对象的地址赋给特定类型的指针”</span><br><span class="line"><span class="comment">//基本语法</span></span><br><span class="line">Superb * pm = <span class="keyword">dynamic_cast</span>&lt;Superb *&gt;(pg);</span><br><span class="line">这里若指针pg的类型可以被安全地转化为Superb*,则运算符将返回对象的地址，否则返回一个空指针</span><br></pre></td></tr></table></figure>
 </li>
@@ -781,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#友元，异常和其他"><span class="nav-number">1.</span> <span class="nav-text">友元，异常和其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-友元"><span class="nav-number">1.1.</span> <span class="nav-text">1.友元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-嵌套类"><span class="nav-number">1.2.</span> <span class="nav-text">2.嵌套类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-异常"><span class="nav-number">1.3.</span> <span class="nav-text">3.异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RTTI—运行阶段类型识别"><span class="nav-number">1.4.</span> <span class="nav-text">4.RTTI—运行阶段类型识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-类型转换运算符"><span class="nav-number">1.5.</span> <span class="nav-text">5.类型转换运算符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#友元，异常和其他"><span class="nav-number">1.</span> <span class="nav-text">友元，异常和其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-友元"><span class="nav-number">1.1.</span> <span class="nav-text">1.友元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-嵌套类"><span class="nav-number">1.2.</span> <span class="nav-text">2.嵌套类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-异常"><span class="nav-number">1.3.</span> <span class="nav-text">3.异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RTTI—-运行阶段类型识别"><span class="nav-number">1.4.</span> <span class="nav-text">4.RTTI—-运行阶段类型识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-类型转换运算符"><span class="nav-number">1.5.</span> <span class="nav-text">5.类型转换运算符</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1050,6 +1050,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
