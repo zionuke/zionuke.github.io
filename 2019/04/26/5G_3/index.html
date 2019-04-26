@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="5G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5G关键技术(三)---小基站大机遇">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/5G_3/index.html">
+<meta property="og:site_name" content="AI Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/5G_3/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/5G_3/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/5G_3/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/5G_3/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/5G_3/5.jpg">
+<meta property="og:updated_time" content="2019-04-26T14:06:27.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5G关键技术(三)---小基站大机遇">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/26/5G_3/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/26/5G_3/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>5G关键技术(三)---小基站大机遇 | AI Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/dragon-liu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AI Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/5G_3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="A dream catcher">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5G关键技术(三)---小基站大机遇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-26 22:03:14 / 修改时间：22:06:27" itemprop="dateCreated datePublished" datetime="2019-04-26T22:03:14+08:00">2019-04-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/5G/" itemprop="url" rel="index"><span itemprop="name">5G</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/26/5G_3/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/26/5G_3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/26/5G_3/" class="leancloud_visitors" data-flag-title="5G关键技术(三)---小基站大机遇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h1 id="5G关键技术-三-—-小基站大机遇"><a href="#5G关键技术-三-—-小基站大机遇" class="headerlink" title="5G关键技术(三)—-小基站大机遇"></a>5G关键技术(三)—-小基站大机遇</h1><p><strong>与3G，4G相比，5G的新兴技术主要是毫米波（点我查看）与波束成形（点我查看）。此外，在载波聚合，多天线输入输出（MIMO）等4G技术上有了新的演进。那么，他对集成电路设计带来了怎样的挑战呢？今天，我们就来预测下5G挑战下，集成电路的新趋势——小基站。</strong></p>
+<p>最近又个词很火，叫做“一言不合”，这让小编想到了一些故事。</p>
+<p>某天，在我家对面的中电信服务点上竖起了一个不高不低的铁架子，上面有两个金属盒子，还有两根高高竖起的天线。在经过了一场盛大广场舞聚会预谋后，小区的女性同胞们开始致力于完成一项具有里程碑式意义的革命——</p>
+<blockquote>
+<p>一言不合</p>
+<p>我就要去抗议基站在我家门口</p>
+</blockquote>
+<p>几天之后，中电信就只能乖乖的把那个铁架子给撤了。</p>
+<p>这应该是我看到最有效率的一言不合吧。</p>
+<p>我无法告诉大家基站会不会影响麻麻肚子里的宝宝，但是大家真的以为移动运营商会把基站撤走么？如果撤了，那你手机的信号格数应该就是最低的那一档了吧。</p>
+<blockquote>
+<p><strong>Too Simple</strong></p>
+<p><strong>SOMETIMES NAIVE</strong></p>
+</blockquote>
+<p>在摩尔定律的发展最直接的变化就把巨无霸变成袖珍丸。</p>
+<p>请看以下今天的基站长什么样：</p>
+<p>你以为的基站（左） Vs 基站实际的样子（右）。<br><img src="/2019/04/26/5G_3/1.jpg" alt="1"></p>
+<p>很多人会问一个问题，右边那张图不是一只路灯么？这就是<strong>小基站</strong>，可以伪装在路灯，公交车站牌和任何不起眼角落的变色龙。（这又是一个<a href="https://zhuanlan.zhihu.com/p/21262505?refer=silicontalks" target="_blank" rel="noopener">摩尔定律</a>带来的生活改变）</p>
+<p>随着集成电路的发展，终端芯片的SoC渐渐走到了穷途末路，而基站芯片的SoC却正在澎湃发展。由此，小基站在4G时期成为了对抗广场舞大妈抗议的重要技术手段。</p>
+<p><strong>问题来了：</strong></p>
+<p><strong>5G下，小基站会更有意义么？</strong></p>
+<p>目前，限制小基站的主要是无线天线尺寸的大小。一般要求天线的尺寸与电磁波波长在同一个数量级，而电磁波波长就是光速除以频率。3G/4G的载波波长在分米级，小基站的天线的长度也在类似。但是在5G下，载波波长变成了毫米级（”[毫米波]”的原因）。所以天线可以做的更小，做得更多（实现[波束成形]和Massive MIMO）。</p>
+<p>小基站（small cell）的体积和称呼从 micro cell，nano cell, pico cell已经进化到femto cell。他们的主要应用场景在于人口密集区，覆盖大基站无法触及的末梢通信。特别是完成号称100Mbps-1GMbps的5G通信。小基站让你工作闲暇之余，在一分钟内下完一集《权利的游戏》高清成为了可能。未来，可以预期的是他会像你家的路由器一样小，藏在CBD和大型Shopping mall的角角落落。抗议大基站（marco station）的麻麻们是不是在上班和逛街的时候考虑下呢？<br><img src="/2019/04/26/5G_3/2.jpg" alt="1"></p>
+<p>小基站的实现，除了摩尔定律带来的高歌猛进外，还有很多智慧的硅工付出的辛劳努力。比如——非线性功放的数字预畸变（Digital Pre-distortion for Nonlinear Power amplifier.）。小基站不仅在规模上要远远小于大基站，在功耗上也是必然指数式下降，毕竟占的是人家建筑里220V的市电。随着集成电路的演进，计算功耗不断降低，可是射频发射机信号的发射功率可是没有多大变化的，毕竟这是由协议灵敏度决定。在大基站里，我们可以用非硅的工艺实现高线性度功放，反正功耗不care。但是在理想的小基站里，PA也是做成SoC的。CMOS工艺的功放在线性工作范围的低效率闻名遐迩，在大功率的输出下功率即将饱和。预期单纯地被限制在线性区是“坐井观天“。<br><img src="/2019/04/26/5G_3/3.jpg" alt="1"></p>
+<p>于是天才型硅工就提出从在数字域寻找非线性PA的反函数，然后输出一个非线性的数字控制码。两者叠加，就有了一个线性的高效率输出。</p>
+<p>然后，这个问题的解法又再一次地普及到频域，当宽带功放在带内的传递函数有波动时，也在数字域寻找其波动的逆函数，给出带有频率选通特性的调制结果，然后一叠加，又能看到幅度一致的EMV mask了。<br><img src="/2019/04/26/5G_3/4.jpg" alt="1"></p>
+<p>这一思想的核心，就是把不随摩尔定律变化的射频功耗等转化为跟着摩尔定律走的数字计算功耗，所谓as much digital as possible.</p>
+<p>在各式各样的努力下，5G小基站变成了PokemonGo中的小精灵般散落在人间。于是新的问题的就出现了，这那么多小基站，万一被踩一脚挂了怎么办？况且其灵活性体现在自由方便可配置上，如果动不动就要打电话给运营商派辆车过来，是否还合适呢？</p>
+<p>为了解决这个问题，我们要来介绍小基站实现中的另一个机制——<strong>自组网（SelfOrganizing Network, SON）</strong>。为了更好的，方便的对具有灵活性的小基站群进行配置、优化和修复，自适应的组网技术将取代大基站中繁杂的介入成本。</p>
+<p>有关调查指出，在5G应用场景中，50%以上的通信资源被1%的终端占用，而这1%往往在大城市的中心地带和商业区。这些地区的实际通信场景复杂，需要可配置度高的网络。更有甚者，这些区域的物联网也比较丰富。在种种情况交叠下，SON可以被看作是5G通信与物联网通信的的桥梁，为这样的区域提供更有效的组网通信系统。<br><img src="/2019/04/26/5G_3/5.jpg" alt="1"></p>
+<p>如果有服务导向的自组网成为可能，那么未来的小基站的实际运营上可能将从移动运营商部分地转换器实体商家和其他小企业运营单位。未来的“网管”不仅管着交换机、无线网，还要管都市移动通信。听上去是不是碉堡了？</p>
+<p><strong>结束的话</strong></p>
+<p>由于社会和通信等一系列的原因，未来小基站会逐渐成为5G通信中不同于大基站的重要增长点，特别在城市CBD区域。毫米波将导致小基站的伪装更加让人难以分辨，与此同时，各种数字化的校准方法也实现了大基站到小基站的低功耗实现。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/5G/" rel="tag"><i class="fa fa-tag"></i> 5G</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/26/5G_2/" rel="next" title="5G关键技术(二)---波束成型">
+                <i class="fa fa-chevron-left"></i> 5G关键技术(二)---波束成型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">A dream catcher</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sherwinww.github.io" title="https://sherwinww.github.io" rel="noopener" target="_blank">zuzu</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5G关键技术-三-—-小基站大机遇"><span class="nav-number">1.</span> <span class="nav-text">5G关键技术(三)—-小基站大机遇</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数:<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+    </span>
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
