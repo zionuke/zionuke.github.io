@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="ns3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ns3内核5">
+<meta property="og:url" content="http://yoursite.com/2019/07/06/ns3内核5/index.html">
+<meta property="og:site_name" content="5G Explorer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/07/06/ns3内核5/1.png">
+<meta property="og:updated_time" content="2019-07-06T03:16:36.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ns3内核5">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/06/ns3内核5/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/06/ns3内核5/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ns3内核5 | 5G Explorer</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/dragon-liu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">5G Explorer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Coding is fun</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/ns3内核5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShreenLiu">
+      <meta itemprop="description" content="一条特立独行的咸鱼">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="5G Explorer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ns3内核5
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-06 10:35:32 / 修改时间：11:16:36" itemprop="dateCreated datePublished" datetime="2019-07-06T10:35:32+08:00">2019-07-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/5G/" itemprop="url" rel="index"><span itemprop="name">5G</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/06/ns3内核5/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/06/ns3内核5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/07/06/ns3内核5/" class="leancloud_visitors" data-flag-title="ns3内核5">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<h2 id="一-Tracing-系统"><a href="#一-Tracing-系统" class="headerlink" title="一.Tracing 系统"></a>一.Tracing 系统</h2><p>​    无论是标准C++输出还是Logging系统输出，都仅仅适合非常小的程序。因为当程序不断增加时，打印语句和控制输出格式将变得非常艰难，即使能够得到想要的输出结果，那么分析这些多条复杂的信息也将变得没有可能。    所以，ns-3需要提供一种机制，这种机制允许用户进入系统内核来获取所需要的信息，前提是不改变内核代码和不用再次编译。更好的方式是，当用户感兴趣的信息发生改变时，系统通知用户对信息进行处理，而不是去深入到系统内核。</p>
+<p>​    下面要讲到的Tracing系统机制就是ns-3提供的用来解决上述问题的一种方法。</p>
+<h4 id="1-综述"><a href="#1-综述" class="headerlink" title="1.综述"></a>1.综述</h4><p>​    ns-3 Tracing系统大体可以分为3个部分：Tracing Sources、Tracing Sinks和将Tracing Sources和Tracing Sinks关联一起的方法。</p>
+<p>​    Tracing Sources是一个实体，它可以用来标记仿真中发生的时间，也可以提供一个访问底层数据的方法。例如，当一个网络设备或网卡收到一个网络分组时，Tracing Source可以指示并提供一个途径将分组的内容传递给对该分组感兴趣的Tracing Sink。还有，Tracing Sources还可在感兴趣的状态发生变化时给出相应的指示。例如，TCP网络协议模块中的拥塞窗口发生改变时，Tracing Sources会给出指示。</p>
+<p>​    <strong>Trace Sources本身是起不到任何作用的，只有当它和一段有实际功能的代码相关联时才有意义，这段代码就是使用Trace Sources提供的信息来做相关事务。使用或者说消费Trace Sources提供信息的实体就称为Trace Sink。换句话说，Trace Sources提供信息，而Trace Sink消费信息，它们2个的关系可以比喻为生产者和消费者的关系。一个Trace Sources生产的信息可以没有Trace Sink消费，也可以一个或者多个Trace Sink消费，它们之间是一对多的关系。这样大家就知道了，单独使用Trace Sources或单独使用Trace Sink是没有任何意义可言的，而针对不同用户给出不同的Trace Sink代码来处理Trace Sources产生的信息时得出的结果也是不同的，也就是说用户可以根据自己的需求给出不同的Trace Sink 以便得出不同的结果。</strong></p>
+<p>​    下面就通过一个简单的例子来说明Trace Sources和Trace Sink以及它们之间是如何相关联的。这里需要用到前面学习过的回调，如果有些遗忘，用户可以再回头学习，这里不再重复。首先给出整体的代码，为了方便大家理解，在代码中通过插入注释的方式来解释该代码段的意义，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ns3/object.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"ns3/uinteger.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ns3/traced-value.h"</span><span class="meta-string">"</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">#include "</span>ns3/trace-source-accessor.h<span class="meta-string">"</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">#include &lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">using namespace ns3;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string"></span></span></span><br><span class="line"><span class="meta"><span class="meta-string">//首先要定义自己的类，该类的父类为Object，因此要引入头文件#include“ns3/object.h”，再次引入了ns-3自定义的无符号整型所声明的头文件#include“ns3/uinteger.h”。下面着重讲解 traced-value.h头文件，在这个头文件中引入了要跟踪数据的类型，即TracedValue。trace-source-accessor.h这个头文件中包含了本程序要使用的能把自定义数据转换为Trace Sources的函数。</span></span></span><br><span class="line"><span class="meta"><span class="meta-string"></span></span></span><br><span class="line"><span class="meta"><span class="meta-string">class MyObject: public Object </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#123;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">public: </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">static TypeId GetTypeId(void)</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#123;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">static TypeId tid=TypeId("</span>Myobject<span class="meta-string">")</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">. SetParent (Object:: GetTypeId ())</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">. AddConstructor&lt;Myobject&gt;()</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">. AddTraceSource ("</span>MyInteger<span class="meta-string">","</span>An integer value to trace.<span class="meta-string">", MakeTraceSourceAccessor(&amp; MyObject::m myInt)); </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">return tid;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#125;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">Myobject()&#123;&#125;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">TracedValue&lt;uint32_t&gt; m_myInt;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#125;；</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">//因为Tracing系统和属性系统有很大的关联，而属性系统和对象相关联，所以，每一个要追踪的数据都必须属于一个特定的类，这里定义这个类为MyObject，而要追踪的数据为m mylnt。GetTypeld 这个函数在前面已经讲述过，这里要注意的是AddTraceSource函数，这个函数使得m_myInt成为一个Trace Sources。</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">void </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">IntTrace(Int oldValue,Int newValue)</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">std::cout &lt;&lt;"</span>Traced <span class="meta-string">"&lt;&lt; oldValue&lt;&lt;"</span>to <span class="meta-string">"&lt;&lt; newValue&lt;&lt; std::endl;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#125;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">//上述代码就是定义Trace Sink</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">int main(int argc,char* argv[])</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#123;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">Ptr&lt;MyObject&gt;myObject=CreateObject&lt;MyObject&gt;(); </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">myobject-&gt;TraceConnectWithoutContext("</span>MyInteger<span class="meta-string">", </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">          MakeCallback(&amp;IntTrace)); </span></span></span><br><span class="line"><span class="meta"><span class="meta-string">myObject-&gt;m_myInt=1234;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">&#125;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">//主函数中首先定义了一个类对象实例，这个实例中包含了一个TraceSource。下面一个函数是至关重要的，因为就是TraceConnectWithoutContext这个函数将Trace Sources 和Trace Sink相关联。只要调用了这个函数，当Trace Sources数据m_myInt 发生改变时，IntTrace函数才会被调用。最后一行代码可以被解释为把常量1234赋值给m_mylnt，这时系统会识别这一行为，并将m_mylnt赋值前和赋值后的2个值作为形参传递给身为Trace Sink的回调函数IntTrace。运行这个例子的结果如图5-8所示。</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/06/ns3内核5/1.png" alt="1"></p>
+<h4 id="2-配置系统"><a href="#2-配置系统" class="headerlink" title="2.配置系统"></a>2.配置系统</h4><p>​    在上一小节例子中学习的函数TraceConnectWithoutContext 在实际编程中很少用到。通常使用被称作“config path”的子系统从系统中选取用户所要使用的Trace Sources。具体的内部细节不再深入讨论，这一部分通过具体操作来讲解如何通过配置路径来建立Trace Sources和Trace Sink的关联。这里使用前面曾经学习过的third.cc作为基本代码，然后通过定义一个Trace Sink来输出移动节点的位置变化信息。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//记得加上这行代码，小细节</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面的函数CourseChange就是要定义的Trace Sink，和定义普通函数没有太大的区别，只要在主函数前声明定义就行。这段代码大家应该比较了解，一个回调函数包含2个参数。</span></span><br><span class="line"><span class="keyword">void</span> CourseChange（<span class="built_in">string</span> context，Ptr&lt;<span class="keyword">const</span> MobilityModel&gt;mode1）</span><br><span class="line">&#123;</span><br><span class="line">	Vector position=model-&gt;GetPosition（）；</span><br><span class="line">	NS LOG UNCOND（context&lt;&lt;<span class="string">"x="</span>&lt;&lt; position.x&lt;&lt;<span class="string">"y="</span>&lt;&lt;</span><br><span class="line">			position.y）；</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//下面编写的代码就是使上面的CourseChange（Trace Sink）和CourseChange（Trace Source）相关联的代码。下面代码放在Simulator:：Run()；前面就好。</span></span><br><span class="line"><span class="built_in">ostringstream</span> oss;</span><br><span class="line">oss&lt;&lt;<span class="string">"/NodeList"</span>&lt;&lt; wifistaNodes. Get(nWifi<span class="number">-1</span>)-&gt;GetId()&lt;&lt;</span><br><span class="line">				   <span class="string">"/$ns3:: MobilityModel/CoureChange"</span>;</span><br><span class="line">Config:: Connect(oss. str(), MakeCallback(&amp; CourseChange));</span><br></pre></td></tr></table></figure>
+<p>​    使用类Config的一个静态成员函数Connect将二者关联在一起。这个函数有2个参数，首先看第2个参数，这个参数功能是使函数CourseChange成为一个回调函数。本小节主要针对第一个参数进行讲解，首先，这个参数是一个由各种字符组成的字符串。下面对该函数的参数——作为路径的字符串分析其代表的含义。第一个“/”符号代表后面要紧跟的是命名空间，后面所跟的“/”符号可以像目录与子目录一样来理解。这里用到的命名空间为NodeList。而NodeList是一个仿真中使用的节点的一个列表，紧随其后的是这个列表的一个索引，这里是通过调用Get函数来获取该节点，然后再通过Getld函数来得到该节点的索引。下一段字符串的第一个字符为“$”，当程序遇见这个符号时，就会调用函数GetObject来返回一个对象，这是因为大家在实际仿真中使用的对象聚合技术已经把许多对象全都集成在这个节点中。因为节点中集成了需要的对象，所以后面就要给出返回对象的类型，这里要返回的对象类型为MobilityModel。而类MobilityModel有一个称为CoureChange的属性，也就是我们要跟踪的Tracing Sources。</p>
+<p>​    那么如何确定“Config path”是一个不可避免的问题，很简单，只要进入API文档，进入你需要的类，你就会发现一个标题Config Paths，之后就一目了然了。</p>
+<h4 id="3-如何确定Trace-Sources"><a href="#3-如何确定Trace-Sources" class="headerlink" title="3.如何确定Trace Sources"></a>3.如何确定Trace Sources</h4><p>​    大家已经学习了2种方法把Trace Sources和Trace Sink相关联起来。这里不可避免地提出疑问，我们是如何知道CourseChange就是想要得到的Trace Sources以及CourseChange是否是可用的Trace Sources。答案就是，去ns3的官网找到自己版本的API文档，然后展开“Modules”，继续展开“C++Constructs Used by All Modules”然后你就会看到几条链接，其中有一个链接是“The list of all trace sources”。在这里你就可以找到ns3中已经定义好的可以直接使用的Trace Sources。比如上面例子中使用的CourseChange就可以在里面找到。</p>
+<h4 id="4-如何确定Trace-Sink"><a href="#4-如何确定Trace-Sink" class="headerlink" title="4.如何确定Trace Sink"></a>4.如何确定Trace Sink</h4><p>​    Trace Sink 实际上是一个函数，所以确定Trace Sink主要就是确定这个函数的返回值和参数。最简单的方法就是参考系统给出的一些例子中已经写好的回调函数。比如在上面的例子中使用的回调函数CourseChange，可以在ns-3.16/examples/wirless目录中的mixed-wireless.cc代码中找到一个函数CourseChangeCallback与之类似。系统中给出了很多这样的可以用来参考的例子，但是这样对于用户来说太过于繁琐，也有可能用户找不到自己想要参考的那个例子，这时候读者要做的就是首先把函数的返回值定义为空也就是void，而参数列表中参数的类型就是Trace Sources的变量类型，比如本文使用的Trace Sources是CourseChange，读者可以在头文件mobility-model.cc中的GetTypeld函数中找到与之对应的MobilityModel成员变量m_courseChangeTrace，然后它的声明类型就可以在mobility-model.h中找到，即 TracedCallback<ptr<const mobilitymodel="">&gt;。这就告诉用户Trace Sink必须有一个参数为TracedCallback<ptr<const mobilitymodel="">&gt;，如果用户使用的是Config:：ConnectWithoutContext，那么函数就可以只有这一个变量，声明如下：</ptr<const></ptr<const></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> courseChangeCallback（Ptr&lt;<span class="keyword">const</span> MobilityModel&gt;model）</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而如果用户使用是Config::Connect,那么函数就又增加一个字符串参数，声明如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> courseChangeCallback（<span class="built_in">std</span>:：<span class="built_in">string</span> path，Ptr&lt;<span class="keyword">const</span> MobilityModel&gt;model）</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ns3/" rel="tag"><i class="fa fa-tag"></i> ns3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/05/ns3内核4/" rel="next" title="ns3内核4">
+                <i class="fa fa-chevron-left"></i> ns3内核4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544029051621&di=58eb0aca880c01aa17233ce2be52bc7c&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Ffa5533f3166ff85e2603f7647c7a93635b09428d.jpg#/images/avatar.gif" alt="ShreenLiu">
+            
+              <p class="site-author-name" itemprop="name">ShreenLiu</p>
+              <p class="site-description motion-element" itemprop="description">一条特立独行的咸鱼</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dragon-liu" title="GitHub &rarr; https://github.com/dragon-liu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sherwinww.github.io" title="https://sherwinww.github.io" rel="noopener" target="_blank">zuzu</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-Tracing-系统"><span class="nav-number">1.</span> <span class="nav-text">一.Tracing 系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-综述"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.综述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-配置系统"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.配置系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-如何确定Trace-Sources"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.如何确定Trace Sources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-如何确定Trace-Sink"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.如何确定Trace Sink</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShreenLiu</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数:<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+    </span>
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz',
+        appKey: 'gFliBxUG6Xm2tjEJXbRdJlr7',
+        placeholder: 'Winter has come, will spring be far away?',
+        avatar:'hide',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "JlvsoILcBuMVn0yj5Y2jh3oe-gzGzoHsz",
+                'X-LC-Key': "gFliBxUG6Xm2tjEJXbRdJlr7",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
