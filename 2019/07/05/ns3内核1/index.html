@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/05/ns3内核1/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/05/ns3内核1/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/05/ns3内核1/3.png">
-<meta property="og:updated_time" content="2019-07-06T03:14:38.191Z">
+<meta property="og:updated_time" content="2019-07-11T03:00:49.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ns3内核1">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/05/ns3内核1/1.png">
@@ -400,7 +400,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-06 11:14:38" itemprop="dateModified" datetime="2019-07-06T11:14:38+08:00">2019-07-06</time>
+                <time title="修改时间：2019-07-11 11:00:49" itemprop="dateModified" datetime="2019-07-11T11:00:49+08:00">2019-07-11</time>
               
             
           </span>
@@ -486,7 +486,7 @@
 </ul>
 <p>首先得了解上述几个术语，每一个RNG（随机数生成器）都会提供一个相当长的随机数序列，这个序列的长度称为循环周期或者循环长度，RNG在完成一次循环后将自动进行下一次重复。这个序列可以被分隔为几个相互没有关联的数据流。一个RNG的随机数据流是这个RNG序列的一个连续子集。例如，一个RNG队列长度为N，同时RNG提供2个数据流，第一个数据流使用序列的前半部分，第二个数据流使用序列的后半部分，当然这里最重要的是：<strong>这2个数据流是相互独立的。</strong>同样，每一个数据流还可以被分为更小的子流。<strong>一个RNG最希望做到的就是提供一个非常长的循环序列，并有效地分配给每一个数据流。</strong></p>
 <h4 id="2-综述"><a href="#2-综述" class="headerlink" title="2.综述"></a>2.综述</h4><p>​    ns-3的随机变量是通过调用类ns3：：RandomVariableStream来提供的。类ns:：Random VariableStream 是对底层的随机数生成器进行封装并提供相关的接口供用户使用（Uniform VariableStream 和ExponetialVariableStream是RandomVariable Stream的子类）。</p>
-<p>​    如果仿真程序具有随机性，而要在相同的仿真中体现结果的随机性，那么就要提供不同的种子或者运行标识。可以通过函数 ns3：：RngSeedManager:SetSeed）来设置种子，同样通过函数ns3：：RngSeedManager:SetRun）设置运行标识。</p>
+<p>​    如果仿真程序具有随机性，而要在相同的仿真中体现结果的随机性，那么就要提供不同的种子或者运行标识。可以通过函数 ns3：：RngSeedManager:SetSeed()来设置种子，同样通过函数ns3：：RngSeedManager:SetRun）设置运行标识。</p>
 <p>​    ns-3中用到的每一个随机变量都有一个随机数生成器与之相关联，所有的随机变量都使用一个基于全局固定的或者随机的种子。</p>
 <h4 id="3-播种与独立重复"><a href="#3-播种与独立重复" class="headerlink" title="3.播种与独立重复"></a>3.播种与独立重复</h4><p>​    通过对ns-3进行配置可以让输出结果是确定的也可以是随机的。如果ns-3在仿真模拟中使用固定的种子和不变运行标识，那么每一次仿真结果都是固定不变的。ns-3默认使用固定的种子和标识，它们分别存储在类GlobalValue的g_rmgseed和g_rmgRun成员中。</p>
 <p>​    但是，人们通常会对同一仿真程序进行多次运行实验，对结果进行统计分析。为了使结果更具有科学性，那么应该让每次实验都具有独立性，这里提供2种方法。</p>
@@ -643,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
