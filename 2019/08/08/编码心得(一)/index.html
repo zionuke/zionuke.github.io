@@ -114,7 +114,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/08/08/编码心得(一)/index.html">
 <meta property="og:site_name" content="5G Explorer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-07T18:34:55.793Z">
+<meta property="og:updated_time" content="2019-08-08T09:15:02.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编码心得(一)">
 
@@ -379,7 +379,7 @@
                 
               
 
-              <time title="创建时间：2019-08-08 02:17:55 / 修改时间：02:34:55" itemprop="dateCreated datePublished" datetime="2019-08-08T02:17:55+08:00">2019-08-08</time>
+              <time title="创建时间：2019-08-08 02:17:55 / 修改时间：17:15:02" itemprop="dateCreated datePublished" datetime="2019-08-08T02:17:55+08:00">2019-08-08</time>
             
 
             
@@ -468,6 +468,9 @@
 <p>6.Linux下命令行编译c语言程序</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o name main.c  <span class="comment">#name是可执行文件的名字</span></span><br><span class="line">./name				<span class="comment">#这样来运行可执行程序</span></span><br></pre></td></tr></table></figure>
 <p>7.多线程的程序记得加锁，不然很容易输出混乱，这个要记得</p>
+<p>8.关于程序的编译和连接</p>
+<p>​    源文件首先会生成中间目标文件，再由中间目标文件生成执行文件。在编译时，编译器只检测程序语法，和函数、变量是否被声明。如果函数未被声明，编译器会给出一个警告，但可以生成Object File。而在链接程序时，链接器会在所有的Object File中找寻函数的实现，如果找不到，那到就会报链接错误码（Linker Error），在VC下，这种错误一般是：Link 2001错误，意思说是说，链接器未能找到函数的实现。你需要指定函数的ObjectFile.</p>
+<p>9.c语言中要在一个源文件中引用另一个源文件中的变量时，只需在相应变量之前加extern即可</p>
 
       
     </div>
