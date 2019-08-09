@@ -108,22 +108,22 @@
 
 
 
-  <meta name="keywords" content="blog">
+  <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo next主题解决无法显示Latex数学公式------系列第六篇">
-<meta property="og:url" content="http://yoursite.com/2019/04/26/blog6/index.html">
+<meta property="og:title" content="github在git push之后不记录Contributions">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/github在git push之后不记录Contributions/index.html">
 <meta property="og:site_name" content="SaltyFish&#39;s Blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-26T03:06:49.519Z">
+<meta property="og:updated_time" content="2019-08-09T16:27:24.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo next主题解决无法显示Latex数学公式------系列第六篇">
+<meta name="twitter:title" content="github在git push之后不记录Contributions">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/26/blog6/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/09/github在git push之后不记录Contributions/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>hexo next主题解决无法显示Latex数学公式------系列第六篇 | SaltyFish's Blog</title>
+  <title>github在git push之后不记录Contributions | SaltyFish's Blog</title>
   
 
 
@@ -366,7 +366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/blog6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/github在git push之后不记录Contributions/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShreenLiu">
@@ -383,7 +383,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo next主题解决无法显示Latex数学公式------系列第六篇
+          <h1 class="post-title" itemprop="name headline">github在git push之后不记录Contributions
               
             
           </h1>
@@ -408,12 +408,24 @@
                 
               
 
-              <time title="创建时间：2019-04-26 11:00:14 / 修改时间：11:06:49" itemprop="dateCreated datePublished" datetime="2019-04-26T11:00:14+08:00">2019-04-26</time>
+              <time title="创建时间：2019-08-09 18:51:55" itemprop="dateCreated datePublished" datetime="2019-08-09T18:51:55+08:00">2019-08-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-10 00:27:24" itemprop="dateModified" datetime="2019-08-10T00:27:24+08:00">2019-08-10</time>
               
             
           </span>
@@ -430,7 +442,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/个人博客搭建/" itemprop="url" rel="index"><span itemprop="name">个人博客搭建</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/错误总结/" itemprop="url" rel="index"><span itemprop="name">错误总结</span></a></span>
 
                 
                 
@@ -445,8 +457,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/26/blog6/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/26/blog6/" itemprop="commentCount"></span>
+                <a href="/2019/08/09/github在git push之后不记录Contributions/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/08/09/github在git push之后不记录Contributions/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -454,7 +466,7 @@
 
           
           
-             <span id="/2019/04/26/blog6/" class="leancloud_visitors" data-flag-title="hexo next主题解决无法显示Latex数学公式------系列第六篇">
+             <span id="/2019/08/09/github在git push之后不记录Contributions/" class="leancloud_visitors" data-flag-title="github在git push之后不记录Contributions">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -487,23 +499,31 @@
       
         <blockquote class="blockquote-center"></blockquote>
 <a id="more"></a>
-<h2 id="hexo-next主题解决无法显示数学公式"><a href="#hexo-next主题解决无法显示数学公式" class="headerlink" title="hexo next主题解决无法显示数学公式"></a>hexo next主题解决无法显示数学公式</h2><p>在用markdown写技术文档时，免不了会碰到数学公式。常用的Markdown编辑器都会集成Mathjax，用来渲染文档中的类Latex格式书写的数学公式。基于Hexo搭建的个人博客，默认情况下渲染数学公式却会出现各种各样的问题。</p>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>Hexo 默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线<code>_</code>代表斜体，会被渲染引擎处理为<code>&lt;em&gt;</code>标签。</p>
-<p>因为类 Latex 格式书写的数学公式下划线<code>_</code>表示下标，有特殊的含义，如果被强制转换为<code>&lt;em&gt;</code>标签，那么 MathJax 引擎在渲染数学公式的时候就会出错。</p>
-<p>类似的语义冲突的符号还包括<code>*</code>, <code>{</code>, <code>}</code>, <code>\\</code>等。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>更换 Hexo 的 markdown 渲染引擎，hexo-renderer-kramed 引擎是在默认的渲染引擎 hexo-renderer-marked 的基础上修改了一些 bug ，两者比较接近，也比较轻量级。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<p>执行上面的命令即可，先卸载原来的渲染引擎，再安装新的。<br>然后，跟换引擎后行间公式可以正确渲染了，但是这样还没有完全解决问题，行内公式的渲染还是有问题，因为 hexo-renderer-kramed 引擎也有语义冲突的问题。接下来到博客根目录下，找到node_modules\kramed\lib\rules\inline.js，把第11行的 escape 变量的值做相应的修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure>
-<p>这一步是在原基础上取消了对\,{,}的转义(escape)。<br>同时把第20行的em变量也要做相应的修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
-<p>重新启动hexo（先clean再generate）,问题完美解决。哦，如果不幸还没解决的话，看看是不是还需要在使用的主题中配置mathjax开关。</p>
-<h5 id="在-Next-主题中开启-MathJax-开关"><a href="#在-Next-主题中开启-MathJax-开关" class="headerlink" title="在 Next 主题中开启 MathJax 开关"></a>在 Next 主题中开启 MathJax 开关</h5><p>如果使用了主题，别忘了在主题（Theme）中开启 MathJax 开关，下面以 next 主题为例，介绍下如何打开 MathJax 开关。</p>
-<p>进入到主题目录，找到 _config.yml 配置问题，把 math 默认的 false 修改为true，具体如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Math Equations Render Support</span><br><span class="line">math:</span><br><span class="line">  enable: true</span><br><span class="line"></span><br><span class="line">  # Default(true) will load mathjax/katex script on demand</span><br><span class="line">  # That is it only render those page who has &apos;mathjax: true&apos; in Front Matter.</span><br><span class="line">  # If you set it to false, it will load mathjax/katex srcipt EVERY PAGE.</span><br><span class="line">  per_page: true</span><br><span class="line"></span><br><span class="line">  engine: mathjax</span><br><span class="line">  #engine: katex</span><br></pre></td></tr></table></figure>
-<p>还需要在文章的Front-matter里打开mathjax开关，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: index.html</span><br><span class="line">date: 2018-07-05 12:01:30</span><br><span class="line">tags:</span><br><span class="line">mathjax: true</span><br><span class="line">--</span><br></pre></td></tr></table></figure>
-<p>之所以要在文章头里设置开关，是因为考虑只有在用到公式的页面才加载 Mathjax，这样不需要渲染数学公式的页面的访问速度就不会受到影响了。</p>
+<h1 id="github在git-push之后不记录Contributions"><a href="#github在git-push之后不记录Contributions" class="headerlink" title="github在git push之后不记录Contributions"></a>github在git push之后不记录Contributions</h1><p>​    在开始使用github之后一直很疑惑，为什么push之后Contributions一直没有相应更新，明明在github上Repositories都有了相应更新，查了很久才发现，是我自己git的email设置有问题。</p>
+<p>​    首先要清楚一点，你push的代码要在contributions上有有显示，有关邮箱有一点很重要</p>
+<ul>
+<li>你的github账户要添加与你git config相同的邮箱才行，也就是说你git config设置的邮箱必须add到你github的邮箱中才行</li>
+</ul>
+<p>其余要求见github官方文档：</p>
+<p><a href="https://help.github.com/en/articles/why-are-my-contributions-not-showing-up-on-my-profile" target="_blank" rel="noopener">https://help.github.com/en/articles/why-are-my-contributions-not-showing-up-on-my-profile</a></p>
+<p>​    我就是因为本地git设置瞎写的，我的config里面email设置是dragon-liu,甚至都不是一个正确的邮箱，如果这时候你修改了config为正确邮箱，之前提交的还是不会显示，那么怎么补救呢？</p>
+<p>​    Github官方同样给出了解决方案：</p>
+<p><a href="https://help.github.com/en/articles/changing-author-info" target="_blank" rel="noopener">https://help.github.com/en/articles/changing-author-info</a></p>
+<p>​    如果你看不懂英文，具体步骤不是很清楚，我已经把这些写成了一个脚本，你只需要做相应替换即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> --bare https://github.com/user/repo.git</span><br><span class="line"><span class="built_in">cd</span> repo.git</span><br><span class="line"></span><br><span class="line">git filter-branch --env-filter <span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">OLD_EMAIL="your-old-email@example.com"</span></span><br><span class="line"><span class="string">CORRECT_NAME="Your Correct Name"</span></span><br><span class="line"><span class="string">CORRECT_EMAIL="your-correct-email@example.com"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]</span></span><br><span class="line"><span class="string">then</span></span><br><span class="line"><span class="string">    export GIT_COMMITTER_NAME="$CORRECT_NAME"</span></span><br><span class="line"><span class="string">    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"</span></span><br><span class="line"><span class="string">fi</span></span><br><span class="line"><span class="string">if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]</span></span><br><span class="line"><span class="string">then</span></span><br><span class="line"><span class="string">    export GIT_AUTHOR_NAME="$CORRECT_NAME"</span></span><br><span class="line"><span class="string">    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"</span></span><br><span class="line"><span class="string">fi</span></span><br><span class="line"><span class="string">'</span> --tag-name-filter cat -- --branches --tags</span><br><span class="line"></span><br><span class="line">git push --force --tags origin <span class="string">'refs/heads/*'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">rm -rf repo.git</span><br></pre></td></tr></table></figure>
+<p>具体解释以下替换什么和怎么用</p>
+<p>1.首先就是你随便找一个你想运行这个脚本的地方，桌面也行。创建一个文本文件，把这一段代码粘贴到里面去，并保存把后缀改为sh即可。</p>
+<p>2.怎么替换呢，首先要做如下替换(这个替换做一次即可)</p>
+<ul>
+<li>your-old-email@example.com改为你的老的不能用的邮箱，比如我的老的不能用的dragon-liu</li>
+<li>Your Correct Name替换为你之后本地git config里面想用的username即可</li>
+<li>your-correct-email@example.com替换为你之后本地git config里面想用的email</li>
+</ul>
+<p>之后就是你每次修改一个Repositories都要做的修改如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">git <span class="built_in">clone</span> --bare https://github.com/user/repo.git中的Repositories地址更换为你想修改的那个</span><br><span class="line">2.</span><br><span class="line"><span class="built_in">cd</span> repo.git</span><br><span class="line">rm -rf repo.git</span><br><span class="line">上面的repo.git更改为https://github.com/user/repo.git地址最后你要修改的.git即可</span><br></pre></td></tr></table></figure>
+<p>​    在所有都更改完之后，你再更改git全局config,运行如下代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  <span class="string">"your-username"</span></span><br><span class="line">git config --global user.email <span class="string">"your-correct-email@example.com"</span></span><br></pre></td></tr></table></figure>
+<p>这样的话，之后即可正常commit和push,在github上也会有contributions更新</p>
 
       
     </div>
@@ -527,7 +547,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"><i class="fa fa-tag"></i> blog</a>
+            <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
           
         </div>
       
@@ -540,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/26/p1/" rel="next" title="解决node.js - npm ERR! network getaddrinfo ENOTFOUND">
-                <i class="fa fa-chevron-left"></i> 解决node.js - npm ERR! network getaddrinfo ENOTFOUND
+              <a href="/2019/08/08/nrmake,makefile,autorun如何配合以简化编译运行/" rel="next" title="nrmake,makefile,autorun如何配合以简化编译运行">
+                <i class="fa fa-chevron-left"></i> nrmake,makefile,autorun如何配合以简化编译运行
               </a>
             
           </div>
@@ -549,10 +569,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/26/5G_1/" rel="prev" title="5G关键技术(一)---毫米波">
-                5G关键技术(一)---毫米波 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -774,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-next主题解决无法显示数学公式"><span class="nav-number">1.</span> <span class="nav-text">hexo next主题解决无法显示数学公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原因"><span class="nav-number">1.0.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在-Next-主题中开启-MathJax-开关"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">在 Next 主题中开启 MathJax 开关</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github在git-push之后不记录Contributions"><span class="nav-number">1.</span> <span class="nav-text">github在git push之后不记录Contributions</span></a></li></ol></div>
             
 
           </div>
